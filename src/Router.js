@@ -1,14 +1,13 @@
 import { Navigate } from "react-router-dom";
 
-import Login from './pages/login'
-import SignUp from './pages/signup'
-import Home from './pages/home'
-import ManageToDos from './pages/managetodos'
-import ManageMeds from './pages/managemeds'
-import Calendar from './pages/calendar'
+import Login from './pages/login/Login'
+import SignUp from './pages/signup/SignUp'
+import Home from './pages/home/Home'
+import ManageToDos from './pages/manage_todos/ManageToDos'
+import ManageMeds from './pages/manage_meds/ManageMeds'
+import Calendar from './pages/calendar/Calendar'
 
-
-const routes = [
+export const routes = [
   {
     path: "/login",
     element: <Login />,
@@ -38,5 +37,3 @@ const routes = [
     element: <Navigate to="/404" replace />,
   },
 ];
-
-export default routes;
