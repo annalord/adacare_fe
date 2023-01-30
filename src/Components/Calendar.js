@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import daygridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
@@ -6,14 +6,14 @@ import './Calendar.css';
 
 const Calendar = () => {
 
-  const [events, setEvents] = useState([])
+  // const [events, setEvents] = useState([])
 
   return (
     <div id="full-calendar">
       <FullCalendar 
         editable
         selectable
-        events={events}
+        // events={events}
         headerToolbar={{
           start: "today prev next",
           end: "dayGridMonth dayGridWeek dayGridDay",
