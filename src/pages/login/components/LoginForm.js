@@ -1,6 +1,6 @@
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-import { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 // import axios from 'axios';
 
 import { loginAPI } from '../../../api/UserAuthAPI';
@@ -9,7 +9,7 @@ const kDefaultFormState = {
   username: "",
   password: "",
 };
-const kBaseUrl = process.env.REACT_APP_BE_URL;
+// const kBaseUrl = process.env.REACT_APP_BE_URL;
 
 const LoginForm = () => {
 
@@ -40,28 +40,31 @@ const LoginForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">username</label>
-          <input
+      <Form onSubmit={handleSubmit}>
+
+      <Form.Group className="mb-3" controlId="formUsername">          
+          <Form.Label>Username</Form.Label>
+          <Form.Control
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChange}
           />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="text"
-            id="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
           />
-        </div>
-        <button id="submit">Log In</button>
-      </form>
+        </Form.Group>
+
+        <Button type='submit'>Log In</Button>
+
+      </Form>
     </div>
 
   )

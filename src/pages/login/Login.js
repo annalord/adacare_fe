@@ -1,8 +1,12 @@
 import LoginForm from './components/LoginForm'
+import LogoutButton from '../../misc_components/LogoutButton'
 
 const Login = () => {
   return (
-    <LoginForm />
+    <div>
+      <LoginForm />
+      <LogoutButton/>
+    </div>
   )
 };
 
