@@ -1,0 +1,36 @@
+#notes-container {
+  border: 20px solid pink;
+  background-color: pink;
+  max-height: 75vh;
+}
+
+#notes-listgroup {
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 53vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#new-note-box {
+  background-color: red;
+  height: 17vh;
+}
+
+#new-note-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20vh;
+}
+
+.name-field {
+  font-size: .75rem;
+  width: 10vw;
+}
+
+.message-field {
+  font-size: .75rem;
+  width: 20vw;
+}
+

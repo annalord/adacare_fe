@@ -1,0 +1,15 @@
+.note {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.name-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.message {
+  color: firebrick;
+}
