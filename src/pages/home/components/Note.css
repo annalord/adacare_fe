@@ -8,8 +8,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: #73412f;
+  font-size: .65rem;
 }
 
 .message {
-  color: firebrick;
+  color: black;
 }

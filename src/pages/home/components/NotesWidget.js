@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Note from './Note';
 import './NotesWidget.css';
+
+import {getNotesApi, postNotesApi} from '../../../api/NotesAPI.js'
 
 const DUMMY_NOTES = [
   {
@@ -74,12 +76,21 @@ const kDefaultFormState = {
 
 const AllNotes = () => {
 
+  const [notesData, setNotesData] = useState({});
+
+  useEffect(() => {
+    const notes = getNotesApi();
+    setNotesData(notes);
+    }
+  , []);
+
+
   const getNoteItemArray = () => {
 
     DUMMY_NOTES.sort((a, b) => new Date(b.date_time_created) - new Date(a.date_time_created));
 
     return DUMMY_NOTES.map((note) => (
-      <ListGroup.Item key={note.id}>
+      <ListGroup.Item key={note.id} id='notes-listgroupitem'>
         <Note
           message={note.message}
           author={note.author}
@@ -101,7 +112,7 @@ const AllNotes = () => {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      /// post to notes 
+      postNotesApi(formData);
       console.log(formData);
       setFormData(kDefaultFormState);
     };
@@ -109,6 +120,8 @@ const AllNotes = () => {
 
   return (
     <div id='notes-container' style={{ fontSize: '.75rem' }}>
+
+      <h2 id='notes-title'>Notes</h2>
 
       <ListGroup id='notes-listgroup'>{getNoteItemArray()}</ListGroup>
 
