@@ -10,27 +10,27 @@ import Calendar from './pages/calendar/Calendar'
 export const routes = [
   {
     path: "/login",
-    element: <Login />,
+    element: Login
   },
   {
     path: "/signup",
-    element: <SignUp />,
+    element: SignUp
   },
   {
     path: '/home',
-    element: <Home/>
+    element: Home
   },
   {
     path: '/managetodos',
-    element: <ManageToDos/>
+    element: ManageToDos
   },
   {
     path: '/managemeds',
-    element: <ManageMeds/>
+    element: ManageMeds
   },
   {
     path: '/calendar',
-    element: <Calendar/>
+    element: Calendar
   },
   {
     path: "*",
