@@ -1,7 +1,8 @@
 #notes-container {
-  border: 20px solid #f23535;
   background-color: #f23535;
-  max-height: 75vh;
+  /* max-height: 75vh; */
+  border-radius: 10px;
+  padding: 20px;
 }
 
 #notes-listgroup {
@@ -13,6 +14,10 @@
   border-radius: 10px;
   background-color: #f2f2f2;
 }
+/* 
+#notes-listgroupitem {
+  height: 15vh;
+} */
 
 #new-note-box {
   background-color:#a6032f;
@@ -37,3 +42,8 @@
   width: 20vw;
 }
 
+#notes-title {
+  font-family: 'Lobster Two', cursive;
+  font-size: 4vh;
+  text-align: center;
+}

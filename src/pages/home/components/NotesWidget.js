@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Note from './Note';
 import './NotesWidget.css';
 
+import {getNotesApi, postNotesApi} from '../../../api/NotesAPI.js'
+
 const DUMMY_NOTES = [
   {
     id: 1,
@@ -76,11 +78,9 @@ const AllNotes = () => {
 
   const [notesData, setNotesData] = useState({});
 
-  
-
-
   useEffect(() => {
-    setNotesData([]);
+    const notes = getNotesApi();
+    setNotesData(notes);
     }
   , []);
 
@@ -90,7 +90,7 @@ const AllNotes = () => {
     DUMMY_NOTES.sort((a, b) => new Date(b.date_time_created) - new Date(a.date_time_created));
 
     return DUMMY_NOTES.map((note) => (
-      <ListGroup.Item key={note.id}>
+      <ListGroup.Item key={note.id} id='notes-listgroupitem'>
         <Note
           message={note.message}
           author={note.author}
@@ -112,7 +112,7 @@ const AllNotes = () => {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      /// post to notes 
+      postNotesApi(formData);
       console.log(formData);
       setFormData(kDefaultFormState);
     };
@@ -120,6 +120,8 @@ const AllNotes = () => {
 
   return (
     <div id='notes-container' style={{ fontSize: '.75rem' }}>
+
+      <h2 id='notes-title'>Notes</h2>
 
       <ListGroup id='notes-listgroup'>{getNoteItemArray()}</ListGroup>
 
