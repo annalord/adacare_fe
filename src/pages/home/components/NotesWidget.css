@@ -1,27 +1,30 @@
 #notes-container {
-  border: 20px solid pink;
-  background-color: pink;
+  border: 20px solid #f23535;
+  background-color: #f23535;
   max-height: 75vh;
 }
 
 #notes-listgroup {
   display: flex;
   flex-direction: column-reverse;
-  max-height: 53vh;
+  max-height: 50vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  border-radius: 10px;
+  background-color: #f2f2f2;
 }
 
 #new-note-box {
-  background-color: red;
-  height: 17vh;
+  background-color:#a6032f;
+  height: 20vh;
+  border-radius: 10px;
 }
 
 #new-note-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 20vh;
+  /* height: 15vh; */
 }
 
 .name-field {

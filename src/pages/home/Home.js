@@ -4,15 +4,18 @@ import Row from 'react-bootstrap/Row'
 import AllNotes from './components/NotesWidget'
 
 import './Home.css'
+import LogoutButton from '../../misc_components/LogoutButton'
 
-
+import bird from '../../littlebird.png'
 
 const Home = () => {
   return (
     <div> 
       <Container>
         <Row id='home-header'>
-          <header>ADACARE</header>
+          <img src={bird} alt="cardinal drawing" id='bird'></img>
+          <h1 id="home-h1">Adacare</h1>
+          <img src={bird} alt="cardinal drawing" id='bird'></img>
         </Row>
 
         <Row>
