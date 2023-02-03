@@ -5,20 +5,18 @@ import AllNotes from './components/NotesWidget'
 import ToDos from './components/ToDos'
 import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-
 import './Home.css'
 import LogoutButton from '../../misc_components/LogoutButton'
+import AdaCareBanner from '../../misc_components/AdaCareBanner'
 
-import bird from '../../littlebird.png'
 
 const Home = () => {
   return (
     <div> 
       <Container>
-        <Row id='home-header' className='mb-3'>
-          <img src={bird} alt="cardinal drawing" id='bird'></img>
-          <h1 id="home-h1">AdaCare</h1>
-          <img src={bird} alt="cardinal drawing" id='bird'></img>
+
+        <Row>
+          <AdaCareBanner/>
         </Row>
 
         <Row>

@@ -1,0 +1,21 @@
+#banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 20vh;
+  background-color: white;
+  margin: none;
+  border-radius: 20px;
+}
+
+#bird {
+  height: 20vh;
+  border-radius: 20px;
+}
+
+#banner-h1 {
+  font-family: 'Lobster Two', cursive;
+  font-size: 11vh;
+  text-shadow: 3px 3px 3px rgba(132, 166, 8, 0.43);
+}
