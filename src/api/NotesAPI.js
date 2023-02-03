@@ -9,20 +9,19 @@ export const getNotesApi = async () => {
 
   const config = {
     headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-CSRFToken': Cookies.get('csrftoken')
-    }
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    withCredentials: true
   };
 
   try {
-    // console.log(Cookies.get('csrftoken'))
     const response = await axios.get(`${kBaseUrl}/notes`, config)
 
-    if (response.data.success) {
+    if (response.status === 200) {
       console.log('notes retrieved!')
-      console.log(response)
-      // console.log(Cookies.get('csrftoken'))
+      return response.data
     }
 
     } catch (err) {
@@ -36,16 +35,16 @@ export const postNotesApi = async (noteData) => {
 
   const config = {
     headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-CSRFToken': Cookies.get('csrftoken')
-    }
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    withCredentials: true
   };
 
-  const body = JSON.stringify(noteData);
+  const body = JSON.stringify({...noteData, user: 1});  /// dont leave user hardcoded!!!
 
   try {
-    // console.log(Cookies.get('csrftoken'))
     const response = await axios.post(`${kBaseUrl}/notes/`,body, config)
 
     if (response.data.success) {

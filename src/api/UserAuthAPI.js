@@ -4,15 +4,18 @@ import Cookies from 'js-cookie';
 
 const kBaseUrl = process.env.REACT_APP_BE_URL;
 
+
 export const loginAPI = async ({ username, password }) => {
-  const body = JSON.stringify({ username, password });
+
+  const body = JSON.stringify({ username, password, withCredentials: true});
   const config = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
     },
-  };
+    withCredentials: true
+  }
 
   try {
     console.log(`token before login ${Cookies.get('csrftoken')}`);
@@ -28,44 +31,25 @@ export const loginAPI = async ({ username, password }) => {
 };
 
 export const logoutAPI = async () => {
+
   const config = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
     },
+    withCredentials: true
   };
-
-  const body = JSON.stringify({
-    withCredentials: true,
-  });
 
   try {
     console.log(`logout token: ${Cookies.get('csrftoken')}`);
-    const response = await axios.post(`${kBaseUrl}/logout`, body, config);
+    const response = await axios.post(`${kBaseUrl}/logout`, config);
 
     if (response.data.success) {
       console.log('logged out');
     }
   } catch (err) {
     console.log(`LOGOUT  FAIL: ${err}`);
-    // console.log(err)
   }
 };
 
-// const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
-
-// axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-// axios.defaults.xsrfCookieName = 'csrftoken';
-// axios.defaults.headers.common['X-CSRFToken'] = csrfToken;
-
-// export const login = (username, password) => {
-//     return axios.post('/api/login/', {
-//         username,
-//         password
-//     });
-// };
-
-// export const logout = () => {
-//     return axios.post('/api/logout/');
-// };

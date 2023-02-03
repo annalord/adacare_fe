@@ -1,23 +1,19 @@
 import LoginForm from './components/LoginForm'
 import LogoutButton from '../../misc_components/LogoutButton'
 import HomeButton from '../../misc_components/HomeButton'
-// import CSRFToken from '../../misc_components/CSRFToken';
-import Cookies from 'js-cookie'
+import './Login.css'
 
 
-    const Login = (props) => {
+const Login = () =>   {
+  return (
+    <div>
+      <LoginForm />
+      <LogoutButton />
+      <HomeButton />
+    </div>
+  );
+      
+};
 
-      console.log(`in login: ${Cookies.get('csrftoken')}`)
 
-      return (
-        <div>
-          {/* <CSRFToken></CSRFToken> */}
-          <LoginForm />
-          <LogoutButton />
-          <HomeButton />
-
-        </div>
-      )
-    };
-
-    export default Login;
+export default Login;

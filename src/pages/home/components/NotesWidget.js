@@ -69,8 +69,8 @@ const formatDateTime = (dateTime) => {
 };
 
 const kDefaultFormState = {
-  name: "",
-  note: "",
+  author: "",
+  message: "",
 };
 
 
@@ -132,8 +132,8 @@ const AllNotes = () => {
               placeholder='Your name'
               size='sm'
               className='name-field'
-              name='name'
-              value={formData.name}
+              name='author'
+              value={formData.author}
               onChange={handleChange}
             />
           </Form.Group>
@@ -143,8 +143,8 @@ const AllNotes = () => {
               size='sm'
               as='textarea'
               className='message-field'
-              name='note'
-              value={formData.note}
+              name='message'
+              value={formData.message}
               onChange={handleChange}
             />
           </Form.Group>
