@@ -17,7 +17,7 @@ const Home = () => {
       <Container>
         <Row id='home-header' className='mb-3'>
           <img src={bird} alt="cardinal drawing" id='bird'></img>
-          <h1 id="home-h1">Adacare</h1>
+          <h1 id="home-h1">AdaCare</h1>
           <img src={bird} alt="cardinal drawing" id='bird'></img>
         </Row>
 

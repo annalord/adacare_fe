@@ -4,62 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Note from './Note';
 import './NotesWidget.css';
-
 import {getNotesApi, postNotesApi} from '../../../api/NotesAPI.js'
 
-const DUMMY_NOTES = [
-  {
-    id: 1,
-    author: 'Anna',
-    message: 'merry christmas',
-    date_time_created: '2022-12-25 22:20:39.511096-07',
-  },
-  {
-    id: 2,
-    author: 'Emily',
-    message: 'benny had surgery',
-    date_time_created: '2023-01-29 18:20:39.511096-07',
-  },
-
-  {
-    id: 3,
-    author: 'Walker',
-    message: 'im at work',
-    date_time_created: '2023-02-01 19:20:39.511096-07',
-  },
-  {
-    id: 4,
-    author: 'Julie',
-    message: 'dont forget to water the plants!',
-    date_time_created: '2023-04-01 18:20:39.511096-07',
-  },
-  {
-    id: 5,
-    author: 'Julie',
-    message:
-      'laksjdflkajsflakjsdflajsdfjfkdjfjfkdfj apple orange tomato pumpkin banana apple orange tomato pumpkin banana apple orange tomato pumpkin banana',
-    date_time_created: '2023-01-23 18:20:39.511096-07',
-  },
-  {
-    id: 6,
-    author: 'Julie',
-    message: 'hellloooooo',
-    date_time_created: '2023-01-25 18:20:39.511096-07',
-  },
-  {
-    id: 7,
-    author: 'Julie',
-    message: 'this is a note from julie',
-    date_time_created: '2023-01-29 18:30:39.511096-07',
-  },
-  {
-    id: 8,
-    author: 'mini',
-    message: 'this is a note from a little dog',
-    date_time_created: '2022-12-29 18:20:39.511096-07',
-  },
-];
-
+// helper function to reformat date and time after sorting
 const formatDateTime = (dateTime) => {
   const date = new Date(dateTime);
   const dateFormatted = date.toLocaleDateString();
@@ -68,6 +15,7 @@ const formatDateTime = (dateTime) => {
   return `${dateFormatted} ${timeFormatted}`;
 };
 
+// for the new note form
 const kDefaultFormState = {
   author: "",
   message: "",
@@ -76,21 +24,26 @@ const kDefaultFormState = {
 
 const AllNotes = () => {
 
-  const [notesData, setNotesData] = useState({});
+  const [notesData, setNotesData] = useState([]); // state for all notes data for that user
+  const [formData, setFormData] = useState(kDefaultFormState); // state for new note form
+
+  const getAllNoteData = async () => {
+    const data = await getNotesApi();
+    setNotesData(data)
+  };
 
   useEffect(() => {
-    const notes = getNotesApi();
-    setNotesData(notes);
+    console.log('in useffect notes')
+    getAllNoteData();
     }
   , []);
 
+  const getNoteItemArray = (notes) => {
+    //sort in chronological order 
+    notes.sort((a, b) => new Date(b.date_time_created) - new Date(a.date_time_created));
 
-  const getNoteItemArray = () => {
-
-    DUMMY_NOTES.sort((a, b) => new Date(b.date_time_created) - new Date(a.date_time_created));
-
-    return DUMMY_NOTES.map((note) => (
-      <ListGroup.Item key={note.id} id='notes-listgroupitem'>
+    return notesData.map((note) => (
+      <ListGroup.Item key={note.id}>
         <Note
           message={note.message}
           author={note.author}
@@ -99,31 +52,29 @@ const AllNotes = () => {
       </ListGroup.Item>
     ));
   };
+  
+  const handleChange = (event) => {
+    const fieldValue = event.target.value;
+    const fieldName = event.target.name;
+    const newFormData = { ...formData, [fieldName]: fieldValue };
 
-  const [formData, setFormData] = useState(kDefaultFormState);
+    setFormData(newFormData);
+  };
   
-    const handleChange = (event) => {
-      const fieldValue = event.target.value;
-      const fieldName = event.target.name;
-      const newFormData = { ...formData, [fieldName]: fieldValue };
-  
-      setFormData(newFormData);
-    };
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      postNotesApi(formData);
-      console.log(formData);
-      setFormData(kDefaultFormState);
-    };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setFormData(kDefaultFormState);
+    await postNotesApi(formData); //post note to database 
+    getAllNoteData(); // get data again, updates state to rerender
+  };
 
 
   return (
-    <div id='notes-container' style={{ fontSize: '.75rem' }}>
+    <div id='notes-container'>
 
       <h2 id='notes-title'>Notes</h2>
 
-      <ListGroup id='notes-listgroup'>{getNoteItemArray()}</ListGroup>
+      <ListGroup id='notes-listgroup'>{getNoteItemArray(notesData)}</ListGroup>
 
       <div id='new-note-box'>
         <Form className='mt-2' id='new-note-form' onSubmit={handleSubmit}>
@@ -148,7 +99,7 @@ const AllNotes = () => {
               onChange={handleChange}
             />
           </Form.Group>
-          <Button variant='light btn-outline-danger' type='submit' size='sm'>
+          <Button type='submit' size='sm' id='note-submit'>
             Submit
           </Button>
         </Form>
