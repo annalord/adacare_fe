@@ -22,6 +22,8 @@ const Home = () => {
         <Row>
           <Col id='nav-container'>
 
+            <p> logged in User's name </p>
+
             <Link to={`/managetodos`}>
               <Button> Manage Daily To-Do Items </Button>
             </Link>
