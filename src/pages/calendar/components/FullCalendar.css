@@ -1,4 +1,36 @@
-#full-calendar {
+.full-calendar {
     font-family: sans-serif;
     background-color: #f2f2f2;
+}
+
+.fc-day-today {
+  background: #84a608 !important;
+  opacity: 30%;
+}
+
+.fc-button {
+  background-color: red !important;
+}
+
+/* .fc-header-toolbar {
+  background-color: pink !important;
+} */
+
+.fc-today-button {
+  background-color: green !important;
+}
+
+.fc-button-active {
+  background-color: purple !important;
+}
+
+.fc-prev-button, .fc-next-button {
+  background-color: blue !important;
+}
+/* .fc-dayGridMonth-button {
+  background-color: yellow !important;
+} */
+
+.fc-highlight {
+  background-color: aquamarine !important;
 }

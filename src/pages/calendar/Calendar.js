@@ -7,7 +7,7 @@ const Calendar = () => {
   return (
     <div>
       <Row>
-        <Col className='col-8'>
+        <Col className='col-9'>
           <FullCalendar/>
         </Col>
 

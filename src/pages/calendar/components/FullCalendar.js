@@ -6,7 +6,7 @@ import './FullCalendar.css';
 import { getEventsApi } from '../../../api/EventsAPI.js';
 ;
 const Calendar = () => {
-  
+
   const [events, setEvents] = useState([])
 
   const getAllEvents = async () => {
@@ -20,17 +20,20 @@ const Calendar = () => {
   }, []);
 
   return (
-    <div id="full-calendar">
+    <div className="full-calendar">
       <FullCalendar 
+        events={events}
+        eventColor= '#a6032f'
         editable
         selectable
-        events={events}
         headerToolbar={{
           start: "today prev next",
+          center: 'title',
           end: "dayGridMonth dayGridWeek dayGridDay",
         }}
         plugins={[daygridPlugin, interactionPlugin]} 
         views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
+        titleFormat={ {year: 'numeric', month: 'long', day: 'numeric'} }
       />
     </div>
   )
