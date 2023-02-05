@@ -29,8 +29,8 @@ export const getEventsApi = async () => {
 };
 
 
-//POST A NEW NOTE
-export const postEventsApi = async (eventData) => {
+//POST A NEW EVENT
+export const postEventApi = async (eventData) => {
 
   const config = {
     headers: {
@@ -41,7 +41,7 @@ export const postEventsApi = async (eventData) => {
     withCredentials: true
   };
 
-  const body = JSON.stringify({...eventData, user: 2});  /// dont leave user hardcoded!!!
+  const body = JSON.stringify({...eventData, user: 5});  /// dont leave user hardcoded!!!
 
   try {
     const response = await axios.post(`${kBaseUrl}/events/`,body, config)

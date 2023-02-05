@@ -1,28 +1,16 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import daygridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import './FullCalendar.css';
-import { getEventsApi } from '../../../api/EventsAPI.js';
+// import { getEventsApi } from '../../../api/EventsAPI.js';
 ;
-const Calendar = () => {
-
-  const [events, setEvents] = useState([])
-
-  const getAllEvents = async () => {
-    const eventData = await getEventsApi();
-    setEvents(eventData);
-  };
-
-  useEffect( () => {
-    console.log('in useffect for calendar')
-    getAllEvents();
-  }, []);
+const MyFullCalendar = (props) => {
 
   return (
     <div className="full-calendar">
       <FullCalendar 
-        events={events}
+        events={props.events}
         eventColor= '#a6032f'
         editable
         selectable
@@ -39,4 +27,4 @@ const Calendar = () => {
   )
 };
 
-export default Calendar;
+export default MyFullCalendar;

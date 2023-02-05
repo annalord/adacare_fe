@@ -42,7 +42,7 @@ export const postNotesApi = async (noteData) => {
     withCredentials: true
   };
 
-  const body = JSON.stringify({...noteData, user: 2});  /// dont leave user hardcoded!!!
+  const body = JSON.stringify({...noteData, user: 5});  /// dont leave user hardcoded!!!
 
   try {
     const response = await axios.post(`${kBaseUrl}/notes/`,body, config)
