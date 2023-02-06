@@ -48,6 +48,7 @@ export const logoutAPI = async () => {
 
     if (response.data.success) {
       console.log('logged out');
+      return response
     }
   } catch (err) {
     console.log(`LOGOUT  FAIL: ${err}`);

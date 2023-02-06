@@ -14,9 +14,9 @@ import { UserContext } from '../../index.js'
 
 const Home = () => {
 
-  const [userState, setUserState] = useContext(UserContext);
+  const [userState] = useContext(UserContext);
 
-  useEffect( () => console.log(userState), []);
+  // useEffect( () => console.log(userState));
 
   return (
     <div> 
