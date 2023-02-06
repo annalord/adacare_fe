@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/adacare_fe/static/css/main.e5e5098e.css",
+    "main.js": "/adacare_fe/static/js/main.bf13599a.js",
+    "static/media/littlebird.png": "/adacare_fe/static/media/littlebird.ec12f87e30c04a956b85.png",
+    "index.html": "/adacare_fe/index.html",
+    "main.e5e5098e.css.map": "/adacare_fe/static/css/main.e5e5098e.css.map",
+    "main.bf13599a.js.map": "/adacare_fe/static/js/main.bf13599a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5e5098e.css",
+    "static/js/main.bf13599a.js"
+  ]
+}
