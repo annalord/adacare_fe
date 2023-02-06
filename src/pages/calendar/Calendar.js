@@ -8,8 +8,7 @@ import { useState, useEffect } from 'react';
 import AddEventModal from './components/AddEventModal.js';
 import { getEventsApi } from '../../api/EventsAPI.js'
 import MyFullCalendar from './components/FullCalendar.js';
-
-
+import HomeButton from '../../misc_components/HomeButton'
 
 const Calendar = () => {
 
@@ -45,6 +44,7 @@ const Calendar = () => {
           handleClose={handleClose}
           getAllEvents={getAllEvents}
           />
+          <HomeButton />
         </Col>
         
       </Row>

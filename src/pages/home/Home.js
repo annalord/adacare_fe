@@ -1,3 +1,4 @@
+import { useContext, useEffect } from 'react';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -8,9 +9,15 @@ import Button from 'react-bootstrap/Button';
 import './Home.css'
 import LogoutButton from '../../misc_components/LogoutButton'
 import AdaCareBanner from '../../misc_components/AdaCareBanner'
+import { UserContext } from '../../index.js'
 
 
 const Home = () => {
+
+  const [userState, setUserState] = useContext(UserContext);
+
+  useEffect( () => console.log(userState), []);
+
   return (
     <div> 
       <Container>

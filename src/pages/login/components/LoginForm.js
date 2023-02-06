@@ -1,27 +1,17 @@
+import { useState, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
-// import axios from 'axios';
-
 import { loginAPI } from '../../../api/UserAuthAPI';
+import { UserContext  } from '../../../index.js'
 
 const kDefaultFormState = {
   username: "",
   password: "",
 };
-// const kBaseUrl = process.env.REACT_APP_BE_URL;
 
 const LoginForm = () => {
 
-  // const [csrfToken, setCsrfToken] = useState(null);
-
-  // useEffect(() => {
-  //   axios.get(`${kBaseUrl}/csrf`)
-  //     .then(response => {
-  //       setCsrfToken(response.data.csrfToken);
-  //     });
-  // }, []);
-
+    const [userState, setUserState] = useContext(UserContext);
     const [formData, setFormData] = useState(kDefaultFormState);
   
     const handleChange = (event) => {
@@ -32,10 +22,19 @@ const LoginForm = () => {
       setFormData(newFormData);
     };
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
-      loginAPI(formData);
+      const response = await loginAPI(formData);
       setFormData(kDefaultFormState);
+      console.log(response)
+      
+      if (response.status === 200) {
+        setUserState({
+          isLoggedIn: true,
+          name: response.data.user_name,
+          id: response.data.user_id,
+        })
+      }
     };
 
   return (

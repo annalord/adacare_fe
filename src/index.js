@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState, createContext }from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
@@ -11,38 +11,42 @@ import ManageMeds from './pages/manage_meds/ManageMeds'
 import Calendar from './pages/calendar/Calendar'
 import './index.css';
 
-const kInitialAppState = {
-  isAuthenticated: false,
-  name: ""
+const kInitialUserState = {
+  isLoggedIn: false,
+  name: null,
+  id: null,
 }
 
+export const UserContext = createContext();
+
 const Index = () => {
-  const [appState, setAppState] = useState(kInitialAppState);
+  const [userState, setUserState] = useState(kInitialUserState);
 
   const routes = [
     {
       path: "/login",
-      element: <Login appState={appState} setAppState={setAppState} />,
+      element: <Login  />
+      // appState={appState} setAppState={setAppState}
     },
     {
       path: "/signup",
-      element: <SignUp appState={appState} setAppState={setAppState} />,
+      element: <SignUp />,
     },
     {
       path: "/home",
-      element: <Home appState={appState} setAppState={setAppState} />,
+      element: <Home />,
     },
     {
       path: "/managetodos",
-      element: <ManageToDos appState={appState} setAppState={setAppState} />,
+      element: <ManageToDos  />,
     },
     {
       path: "/managemeds",
-      element: <ManageMeds appState={appState} setAppState={setAppState} />,
+      element: <ManageMeds  />,
     },
     {
       path: "/calendar",
-      element: <Calendar appState={appState} setAppState={setAppState} />,
+      element: <Calendar  />,
     },
     {
       path: "*",
@@ -52,7 +56,9 @@ const Index = () => {
   
   return (
     <React.StrictMode>
-      <RouterProvider router={createBrowserRouter(routes)} />
+      <UserContext.Provider value={[userState, setUserState]}>
+        <RouterProvider router={createBrowserRouter(routes)} />
+      </UserContext.Provider>
     </React.StrictMode>
   );
 };

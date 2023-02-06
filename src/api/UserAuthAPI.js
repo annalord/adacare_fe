@@ -24,6 +24,7 @@ export const loginAPI = async ({ username, password }) => {
     if (response.data.success) {
       console.log(`token after login ${Cookies.get('csrftoken')}`);
       console.log('login success')
+      return response
     }
   } catch (err) {
     console.log(`LOGIN FAIL: ${err}`);
