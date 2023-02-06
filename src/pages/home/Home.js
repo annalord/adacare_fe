@@ -16,8 +16,6 @@ const Home = () => {
 
   const [userState] = useContext(UserContext);
 
-  // useEffect( () => console.log(userState));
-
   return (
     <div> 
       <Container>
@@ -29,7 +27,7 @@ const Home = () => {
         <Row>
           <Col id='nav-container'>
 
-            <p> logged in User's name </p>
+            <p> {userState.name} </p>
 
             <Link to={`/managetodos`}>
               <Button> Manage Daily To-Do Items </Button>

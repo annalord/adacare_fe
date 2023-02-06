@@ -11,7 +11,7 @@ const kDefaultFormState = {
 
 const LoginForm = () => {
 
-    const [userState, setUserState] = useContext(UserContext);
+    const setUserState = useContext(UserContext)[1];
     const [formData, setFormData] = useState(kDefaultFormState);
   
     const handleChange = (event) => {

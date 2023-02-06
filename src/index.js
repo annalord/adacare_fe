@@ -2,7 +2,7 @@ import React, { useState, createContext }from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
-
+import FourOhFour from './misc_components/FourOhFour.js';
 import Login from './pages/login/Login'
 import SignUp from './pages/signup/SignUp'
 import Home from './pages/home/Home'
@@ -47,6 +47,10 @@ const Index = () => {
     {
       path: "/calendar",
       element: <Calendar  />,
+    },
+    {
+      path: "/404",
+      element: <FourOhFour />,
     },
     {
       path: "*",

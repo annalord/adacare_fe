@@ -7,7 +7,7 @@ import { UserContext  } from '../index.js'
 
 const LogoutButton = () => {
 
-  const [userState, setUserState] = useContext(UserContext);
+  const setUserState = useContext(UserContext)[1];
 
   const handleLogout = async () => {
     const response = await logoutAPI();
