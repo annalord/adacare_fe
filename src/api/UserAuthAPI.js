@@ -7,6 +7,8 @@ const kBaseUrl = process.env.REACT_APP_BE_URL;
 
 export const loginAPI = async ({ username, password }) => {
 
+  const csrfResponse = await axios.get(`${kBaseUrl}/csrf`)
+
   const body = JSON.stringify({ username, password, withCredentials: true});
   const config = {
     headers: {
@@ -18,7 +20,8 @@ export const loginAPI = async ({ username, password }) => {
   }
 
   try {
-    console.log(`token before login ${Cookies.get('csrftoken')}`);
+    // console.log(`token before login ${Cookies.get('csrftoken')}`);
+    // console.log(`token before login ${csrfResponse.data.csrfToken}`);
     const response = await axios.post(`${kBaseUrl}/login`, body, config);
 
     if (response.data.success) {
