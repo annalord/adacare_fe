@@ -5,6 +5,34 @@ import Cookies from 'js-cookie';
 const kBaseUrl = process.env.REACT_APP_BE_URL;
 
 
+export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstName:first_name }) => {
+
+  const body = JSON.stringify({ username, password, pw_repeat, first_name, withCredentials: true});
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'), //?
+    },
+    withCredentials: true
+  }
+
+  try {
+    const response = await axios.post(`${kBaseUrl}/signup`, body, config);
+
+    if (response.data.success) {
+      console.log('sign up success')
+    } else {
+      console.log('username taken or PW do not match')
+    }
+    return response;
+
+  } catch (err) {
+    console.log(`SIGN UP FAIL: ${err}`);
+  } 
+  
+};
+
 export const loginAPI = async ({ username, password }) => {
 
   // const csrfResponse = await axios.get(`${kBaseUrl}/csrf`)

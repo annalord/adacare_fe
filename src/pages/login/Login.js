@@ -1,22 +1,23 @@
-import LoginForm from './components/LoginForm'
-import LogoutButton from '../../misc_components/LogoutButton'
-import HomeButton from '../../misc_components/HomeButton'
-import './Login.css'
-// import CSRFToken from '../../misc_components/CSRFToken'
+import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import './Login.css';
+// import CSRFToken from '../../misc_components/CSRFToken';
 
+const Login = () => {
+  const navigate = useNavigate();
 
-const Login = () =>   {
+  const goToSignUp = () => {
+    return navigate('/signup');
+  };
+
   return (
     <div>
-
       {/* <CSRFToken></CSRFToken> */}
       <LoginForm />
-      <LogoutButton />
-      <HomeButton />
+      <Button onClick={goToSignUp}> Dont have an account? Sign up </Button>
     </div>
   );
-      
 };
-
 
 export default Login;

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { loginAPI } from '../../../api/UserAuthAPI';
 import { useAuthContext } from '../../../hooks/useAuthContext.js';
+import './LoginForm.css'
 
 const kDefaultFormState = {
   username: '',
@@ -41,7 +42,7 @@ const LoginForm = () => {
     <div>
       <Form onSubmit={handleSubmit}>
         <Form.Group className='mb-3' controlId='formUsername'>
-          <Form.Label>Username</Form.Label>
+          <Form.Label className='label'>Username</Form.Label>
           <Form.Control
             type='text'
             name='username'
@@ -51,7 +52,7 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='formPassword'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label className='label'>Password</Form.Label>
           <Form.Control
             type='text'
             name='password'
@@ -60,7 +61,7 @@ const LoginForm = () => {
           />
         </Form.Group>
 
-        <Button type='submit'>Log In</Button>
+        <Button type='submit'>Log in</Button>
       </Form>
     </div>
   );

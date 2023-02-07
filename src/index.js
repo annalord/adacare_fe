@@ -28,10 +28,6 @@ const Index = () => {
           element: <Login />,
         },
         {
-          path: '/signup',
-          element: <SignUp />,
-        },
-        {
           path: '/home',
           element: <Home />,
         },
@@ -56,6 +52,11 @@ const Index = () => {
           element: <Navigate to='/404' replace />,
         },
       ],
+    },
+    // unprotected route
+    {
+      path: '/signup',
+      element: <SignUp />,
     },
   ];
 
