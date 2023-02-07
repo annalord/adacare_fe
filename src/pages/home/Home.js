@@ -8,13 +8,17 @@ import Button from 'react-bootstrap/Button';
 import './Home.css'
 import LogoutButton from '../../misc_components/LogoutButton'
 import AdaCareBanner from '../../misc_components/AdaCareBanner'
+import { useAuthContext } from '../../hooks/useAuthContext.js';
+
 
 
 const Home = () => {
 
+  const { user } = useAuthContext();
+
   return (
     <div> 
-      <Container>
+      <Container fluid>
 
         <Row>
           <AdaCareBanner/>
@@ -23,7 +27,7 @@ const Home = () => {
         <Row>
           <Col id='nav-container'>
 
-            {/* <p> {userState.name} </p> */}
+            <p> {user.name} </p>
 
             <Link to={`/managetodos`}>
               <Button> Manage Daily To-Do Items </Button>

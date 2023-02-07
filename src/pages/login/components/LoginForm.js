@@ -26,10 +26,10 @@ const LoginForm = () => {
     event.preventDefault();
     const response = await loginAPI(formData);
     setFormData(kDefaultFormState);
-    console.log(response);
+    // console.log(response);
 
     if (response.status === 200) {
-      console.log(`in loginform handlesubmit if statement`);
+      // console.log(`in loginform handlesubmit if statement`);
       authLogin({
         isLoggedIn: true,
         name: response.data.user_name,
