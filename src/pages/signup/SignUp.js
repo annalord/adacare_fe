@@ -1,9 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './SignUp.css';
 import { signUpAPI } from '../../api/UserAuthAPI';
+import AdaCareBanner from '../../misc_components/AdaCareBanner'
 
 const kDefaultFormState = {
   firstName: '',
@@ -40,54 +43,68 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <div>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className='mb-3' controlId='formFirstName'>
-          <Form.Label className='label'>First name</Form.Label>
-          <Form.Control
-            type='text'
-            name='firstName'
-            value={formData.firstName}
-            onChange={handleChange}
-          />
-        </Form.Group>
+    <div id='signup-container'>
+      <Container fluid className='vh-100'>
 
-        <Form.Group className='mb-3' controlId='formUsername'>
-          <Form.Label className='label'>Username</Form.Label>
-          <Form.Control
-            type='text'
-            name='username'
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </Form.Group>
+        <Row>
+          <AdaCareBanner/>
+        </Row>
 
-        <Form.Group className='mb-3' controlId='formPassword'>
-          <Form.Label className='label'>Password</Form.Label>
-          <Form.Control
-            type='text'
-            name='password'
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </Form.Group>
+        <Row className='d-flex justify-content-center mt-1 mb-3'>
+          <Form onSubmit={handleSubmit} id='signup-form'>
+            <p id='create-acct-txt'>Create an account</p>
+            <Form.Group className='mb-3' controlId='formFirstName'>
+              <Form.Label className='label'>First name</Form.Label>
+              <Form.Control
+                type='text'
+                name='firstName'
+                value={formData.firstName}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Form.Group className='mb-3' controlId='formPwRepeat'>
-          <Form.Label className='label'>Repeat password</Form.Label>
-          <Form.Control
-            type='text'
-            name='pwRepeat'
-            value={formData.pwRepeat}
-            onChange={handleChange}
-          />
-        </Form.Group>
+            <Form.Group className='mb-3' controlId='formUsername'>
+              <Form.Label className='label'>Username</Form.Label>
+              <Form.Control
+                type='text'
+                name='username'
+                value={formData.username}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Button type='submit'>Sign up</Button>
-      </Form>
-    </div>
+            <Form.Group className='mb-3' controlId='formPassword'>
+              <Form.Label className='label'>Password</Form.Label>
+              <Form.Control
+                type='password'
+                name='password'
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-      <Button onClick={goToLogin}> Have an account? Log in </Button>
+            <Form.Group className='mb-3' controlId='formPwRepeat'>
+              <Form.Label className='label'>Repeat password</Form.Label>
+              <Form.Control
+                type='password'
+                name='pwRepeat'
+                value={formData.pwRepeat}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            
+            <div className='text-center'>
+              <Button type='submit' id='signup-button'>Sign up</Button>
+            </div>
+          </Form>
+        </Row>
+        
+        <Row id='login-row'>
+          <p>Have an account? &nbsp;</p>
+          <a href='/login' id='login-link'>Log in</a>
+        </Row>
+
+      </Container>
     </div>
   );
 };

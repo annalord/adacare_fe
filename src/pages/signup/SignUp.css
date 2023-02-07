@@ -1,3 +1,48 @@
+#signup-container {
+  background-color: white;
+}
+
 .label {
   color: #f2f2f2
 }
+
+#signup-form {
+  background-color: #a6032f;
+  padding: 2vw;
+  border: solid #f23535;
+}
+
+#create-acct-txt {
+  font-family: 'Lobster Two', cursive;
+  color: #f2f2f2;
+  font-size: 3.5vh;
+  text-align: center;
+}
+
+#signup-button {
+  background-color: #402d32;
+  border: none;
+  color: #f2f2f2;
+  box-shadow: 2px 2px 2px #f23535;
+}
+
+#signup-button:hover {
+  box-shadow: 2px 2px 2px #84a608;
+}
+
+#login-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#login-link {
+  color: #a6032f;
+}
+
+#login-link:hover {
+  color: #f23535;
+  text-decoration: underline;
+}
+
+/* 84a608 */
