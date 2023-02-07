@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const lsUser = getItemFromLocalStorage("user");
 
-    if (lsUser.isLoggedIn === true) {
+    if (lsUser?.isLoggedIn) {
       // set user in state
       setUser(lsUser);
       // navigate them wherever we want/they intended to go
