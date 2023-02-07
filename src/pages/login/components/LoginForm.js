@@ -40,7 +40,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} id='login-form'>
         <Form.Group className='mb-3' controlId='formUsername'>
           <Form.Label className='label'>Username</Form.Label>
           <Form.Control
@@ -61,7 +61,9 @@ const LoginForm = () => {
           />
         </Form.Group>
 
-        <Button type='submit'>Log in</Button>
+        <div className='text-center'>
+          <Button type='submit' id='login-button'>Log in</Button>
+        </div>
       </Form>
     </div>
   );

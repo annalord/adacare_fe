@@ -1,21 +1,30 @@
-import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container';
 import LoginForm from './components/LoginForm';
 import './Login.css';
+import AdaCareBanner from '../../misc_components/AdaCareBanner'
 // import CSRFToken from '../../misc_components/CSRFToken';
 
 const Login = () => {
-  const navigate = useNavigate();
-
-  const goToSignUp = () => {
-    return navigate('/signup');
-  };
 
   return (
-    <div>
-      {/* <CSRFToken></CSRFToken> */}
-      <LoginForm />
-      <Button onClick={goToSignUp}> Dont have an account? Sign up </Button>
+    <div id='login-container'>
+      <Container fluid className='vh-100'>
+
+        <Row>
+          <AdaCareBanner/>
+        </Row>
+
+        <Row className='d-flex justify-content-center mt-3 mb-3'>
+          <LoginForm/>
+        </Row>
+
+        <Row id='signup-row'>
+          <p>Don't have an account? &nbsp;</p>
+          <a href='/signup' id='signup-link'>Sign up</a>
+        </Row>
+
+        </Container>
     </div>
   );
 };
