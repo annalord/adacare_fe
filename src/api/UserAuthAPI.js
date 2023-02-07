@@ -7,7 +7,7 @@ const kBaseUrl = process.env.REACT_APP_BE_URL;
 
 export const loginAPI = async ({ username, password }) => {
 
-  const csrfResponse = await axios.get(`${kBaseUrl}/csrf`)
+  // const csrfResponse = await axios.get(`${kBaseUrl}/csrf`)
 
   const body = JSON.stringify({ username, password, withCredentials: true});
   const config = {
@@ -20,12 +20,12 @@ export const loginAPI = async ({ username, password }) => {
   }
 
   try {
-    // console.log(`token before login ${Cookies.get('csrftoken')}`);
-    // console.log(`token before login ${csrfResponse.data.csrfToken}`);
+    console.log(`token before login with cookies.get ${Cookies.get('csrftoken')}`);
+    // console.log(`token before login with csrfResponse ${csrfResponse.data.csrfToken}`);
     const response = await axios.post(`${kBaseUrl}/login`, body, config);
 
     if (response.data.success) {
-      console.log(`token after login ${Cookies.get('csrftoken')}`);
+      console.log(`token after login with cookies.get ${Cookies.get('csrftoken')}`);
       console.log('login success')
       return response
     }

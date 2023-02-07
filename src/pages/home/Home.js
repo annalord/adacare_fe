@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -9,12 +8,9 @@ import Button from 'react-bootstrap/Button';
 import './Home.css'
 import LogoutButton from '../../misc_components/LogoutButton'
 import AdaCareBanner from '../../misc_components/AdaCareBanner'
-import { UserContext } from '../../index.js'
 
 
 const Home = () => {
-
-  const [userState] = useContext(UserContext);
 
   return (
     <div> 
@@ -27,7 +23,7 @@ const Home = () => {
         <Row>
           <Col id='nav-container'>
 
-            <p> {userState.name} </p>
+            {/* <p> {userState.name} </p> */}
 
             <Link to={`/managetodos`}>
               <Button> Manage Daily To-Do Items </Button>
