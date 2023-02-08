@@ -6,7 +6,7 @@ import FourOhFour from './misc_components/FourOhFour.js';
 import Login from './pages/login/Login';
 import SignUp from './pages/signup/SignUp';
 import Home from './pages/home/Home';
-import ManageToDos from './pages/manage_todos/ManageToDos';
+import ManageChecklist from './pages/manage_checklist/ManageChecklist';
 import ManageMeds from './pages/manage_meds/ManageMeds';
 import Calendar from './pages/calendar/Calendar';
 import './index.css';
@@ -36,8 +36,8 @@ const Index = () => {
           element: <Home />,
         },
         {
-          path: '/managetodos',
-          element: <ManageToDos />,
+          path: '/managechecklist',
+          element: <ManageChecklist />,
         },
         {
           path: '/managemeds',

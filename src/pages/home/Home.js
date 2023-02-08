@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import AllNotes from './components/NotesWidget'
-import ToDos from './components/ToDos'
+import TodaysChecklist from './components/TodaysChecklist';
 import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './Home.css'
@@ -29,8 +29,8 @@ const Home = () => {
 
             <p> {user.name} </p>
 
-            <Link to={`/managetodos`}>
-              <Button> Manage Daily To-Do Items </Button>
+            <Link to={`/managechecklist`}>
+              <Button> Manage Daily Checklist </Button>
             </Link>
 
             <Link to={`/calendar`}>
@@ -46,7 +46,7 @@ const Home = () => {
           </Col>
 
           <Col>
-            <ToDos></ToDos>
+            <TodaysChecklist></TodaysChecklist>
           </Col>
 
           <Col>

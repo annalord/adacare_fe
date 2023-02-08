@@ -7,7 +7,7 @@ const LogoutButton = () => {
 
   const handleLogout = async () => {
     const response = await logoutAPI();
-    console.log(response);
+    // console.log(response);
     if (response.data.success) {
       authLogout();
     } else {
