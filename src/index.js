@@ -24,6 +24,10 @@ const Index = () => {
       element: <AuthorizedLayout />,
       children: [
         {
+          path: '/',
+          element: <Login />,
+        },
+        {
           path: '/login',
           element: <Login />,
         },

@@ -24,7 +24,7 @@ const AddEventModal = (props) => {
     setFormData(kDefaultFormState);
     props.handleClose();
     await postEventApi(formData); //post note to database 
-    props.getAllEventData(); // get data again, updates state to rerender
+    props.getAllEvents(); // get data again, updates state to rerender
   };
 
 
