@@ -31,7 +31,7 @@ export const getNotesApi = async () => {
 
 
 //POST A NEW NOTE
-export const postNotesApi = async (noteData) => {
+export const postNotesApi = async (noteData, userId) => {
 
   const config = {
     headers: {
@@ -42,7 +42,7 @@ export const postNotesApi = async (noteData) => {
     withCredentials: true
   };
 
-  const body = JSON.stringify({...noteData, user: 5});  /// dont leave user hardcoded!!!
+  const body = JSON.stringify({...noteData, user: userId});  
 
   try {
     const response = await axios.post(`${kBaseUrl}/notes/`,body, config)

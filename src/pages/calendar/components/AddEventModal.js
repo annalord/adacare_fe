@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 // import FormCheck from 'react-bootstrap/FormCheck'
 import { useState } from 'react';
 import { postEventApi } from '../../../api/EventsAPI.js'
+import { useAuthContext } from '../../../hooks/useAuthContext';
 
 
 const kDefaultFormState = {
@@ -18,12 +19,14 @@ const kDefaultFormState = {
 const AddEventModal = (props) => {
 
   const [formData, setFormData] = useState(kDefaultFormState);
+  const { user } = useAuthContext();
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setFormData(kDefaultFormState);
     props.handleClose();
-    await postEventApi(formData); //post note to database 
+    await postEventApi(formData, user.id); //post note to database 
     props.getAllEvents(); // get data again, updates state to rerender
   };
 

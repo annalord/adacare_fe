@@ -40,8 +40,6 @@ export const deleteTaskApi = async (id) => {
     withCredentials: true
   };
 
-  // const body = JSON.stringify({...eventData, user: 5});  /// dont leave user hardcoded!!!
-
   try {
     const response = await axios.delete(`${kBaseUrl}/dailytasks/${id}`, config)
 
@@ -56,7 +54,7 @@ export const deleteTaskApi = async (id) => {
 
 
 // POST A NEW TASK
-export const postTaskApi = async (taskData) => {
+export const postTaskApi = async (taskData, userId) => {
 
   const config = {
     headers: {
@@ -67,7 +65,7 @@ export const postTaskApi = async (taskData) => {
     withCredentials: true
   };
 
-  const body = JSON.stringify({...taskData, user: 5});  /// dont leave user hardcoded!!!
+  const body = JSON.stringify({...taskData, user: userId});  /// dont leave user hardcoded!!!
 
   try {
     const response = await axios.post(`${kBaseUrl}/dailytasks/`,body, config)

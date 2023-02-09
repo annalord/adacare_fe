@@ -1,9 +1,8 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-// import { useState, useEffect } from 'react';
+
 
 const kBaseUrl = process.env.REACT_APP_BE_URL;
-
 
 export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstName:first_name }) => {
 
@@ -12,7 +11,7 @@ export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstN
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'X-CSRFToken': Cookies.get('csrftoken'), //?
+      'X-CSRFToken': Cookies.get('csrftoken'),
     },
     withCredentials: true
   }

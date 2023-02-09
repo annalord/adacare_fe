@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './AddTaskForm.css';
 import { postTaskApi } from '../../../api/ChecklistAPI.js'
+import { useAuthContext } from '../../../hooks/useAuthContext';
+
 
 
 const kDefaultFormState = {
@@ -12,6 +14,7 @@ const kDefaultFormState = {
 
 const AddTaskForm = (props) => {
   const [formData, setFormData] = useState(kDefaultFormState);
+  const { user } = useAuthContext();
 
   const handleChange = (event) => {
     const fieldValue = event.target.value;
@@ -23,7 +26,7 @@ const AddTaskForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await postTaskApi(formData);
+    await postTaskApi(formData, user.id);
     setFormData(kDefaultFormState);
     props.getAllChecklistData();
     }

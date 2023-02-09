@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Note from './Note';
 import './NotesWidget.css';
 import {getNotesApi, postNotesApi} from '../../../api/NotesAPI.js'
+import { useAuthContext } from '../../../hooks/useAuthContext';
 
 // helper function to reformat date and time after sorting
 const formatDateTime = (dateTime) => {
@@ -26,6 +27,7 @@ const AllNotes = () => {
 
   const [notesData, setNotesData] = useState([]); // state for all notes data for that user
   const [formData, setFormData] = useState(kDefaultFormState); // state for new note form
+  const { user } = useAuthContext();
 
   const getAllNoteData = async () => {
     const data = await getNotesApi();
@@ -64,7 +66,7 @@ const AllNotes = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setFormData(kDefaultFormState);
-    await postNotesApi(formData); //post note to database 
+    await postNotesApi(formData, user.id); //post note to database 
     getAllNoteData(); // get data again, updates state to rerender
   };
 
