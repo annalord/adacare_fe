@@ -55,5 +55,31 @@ export const deleteTaskApi = async (id) => {
 };
 
 
+// POST A NEW TASK
+export const postTaskApi = async (taskData) => {
+
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    withCredentials: true
+  };
+
+  const body = JSON.stringify({...taskData, user: 5});  /// dont leave user hardcoded!!!
+
+  try {
+    const response = await axios.post(`${kBaseUrl}/dailytasks/`,body, config)
+
+    if (response.status === 201) {
+      console.log('task posted!')
+    }
+
+    } catch (err) {
+    console.log(`failure posting task: ${err}`)
+  }
+};
+
 
 

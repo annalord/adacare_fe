@@ -1,30 +1,12 @@
-import { useState, useEffect } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { getChecklistApi, deleteTaskApi } from '../../../api/ChecklistAPI.js'
 import DailyChecklistItem from './DailyChecklistItem.js';
 
 
+const DailyChecklist = (props) => {
 
-
-const DailyChecklist = () => {
-
-  const [checklistData, setChecklistData] = useState([]); 
-
-    const getAllChecklistData = async () => {
-    const data = await getChecklistApi();
-    setChecklistData(data)
-  };
-
-  useEffect(() => {
-    getAllChecklistData();
-    }
-  , []);
-
-
-
-  const getNoteItemArray = (data) => {
-    //sort in chronological order 
-    // notes.sort((a, b) => new Date(b.date_time_created) - new Date(a.date_time_created));
+  const getTaskItemArray = (data) => {
+    //sort by time
+    data.sort((a, b) => new Date("1970-01-01 " + a.time) - new Date("1970-01-01 " + b.time));
 
     return data.map((task) => (
       <ListGroup.Item key={task.id}>
@@ -33,16 +15,15 @@ const DailyChecklist = () => {
         task={task.task}
         time={task.time}
         completed={task.is_complete}
-        getData={getAllChecklistData}
+        getData={props.getAllChecklistData}
         />
       </ListGroup.Item>
     ));
   };
   
-
   return (
     <div>
-      <ListGroup>{getNoteItemArray(checklistData)}</ListGroup>
+      <ListGroup>{getTaskItemArray(props.checklistData)}</ListGroup>
     </div>
   );
 };
