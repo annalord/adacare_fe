@@ -17,7 +17,7 @@ const MyFullCalendar = (props) => {
     console.log(formatEventDetails(props.events))
 
   return (
-    <div className="full-calendar">
+    <div className="full-calendar mt-3 ml-3 mb-3">
       <FullCalendar 
         events={formatEventDetails(props.events)}
         eventColor= '#a6032f'

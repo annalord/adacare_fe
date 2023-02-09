@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 import AddEventModal from './components/AddEventModal.js';
 import { getEventsApi } from '../../api/EventsAPI.js'
 import MyFullCalendar from './components/FullCalendar.js';
-import HomeButton from '../../misc_components/HomeButton'
 import NavBar from '../../misc_components/NavBar.js';
+import './Calendar.css'
 
 const Calendar = () => {
 
@@ -27,7 +27,7 @@ const Calendar = () => {
   const handleClose = () => setIsModalOpen(false);
 
   return (
-    <div>
+    <div id="calendar-page">
       <Row>
         <NavBar />
       </Row>
@@ -36,15 +36,13 @@ const Calendar = () => {
           <MyFullCalendar events={eventsData}/>
         </Col>
 
-        <Col>
-        {/* change this to clicking on calendar date instead? */}
-          <Button onClick={handleShow}> Add Event </Button> 
+        <Col >
+          <Button onClick={handleShow} id='add-event-button' className='mt-3 mr-3'> Click here to add a new calendar event </Button> 
           <AddEventModal
           isOpen={isModalOpen}
           handleClose={handleClose}
           getAllEvents={getAllEvents}
           />
-          <HomeButton />
         </Col>
         
       </Row>

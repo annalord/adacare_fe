@@ -1,0 +1,10 @@
+#calendar-page {
+  background-color: #402d32
+}
+
+#add-event-button {
+  background-color: #84a608;
+  border: none;
+  box-shadow:  1px 1px 5px #f23535;
+  color: black;
+}
