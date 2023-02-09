@@ -1,8 +1,11 @@
-
+import NavBar from "../../misc_components/NavBar";
 
 const ManageMeds = () => {
   return (
-    <div> manage med pg </div>
+    
+    <div>
+      <NavBar />
+    </div>
   )
 };
 

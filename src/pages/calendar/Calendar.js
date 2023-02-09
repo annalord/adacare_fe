@@ -1,14 +1,12 @@
-// import FullCalendar from './components/FullCalendar'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
-// import Form from 'react-bootstrap/Form';
 import { useState, useEffect } from 'react';
 import AddEventModal from './components/AddEventModal.js';
 import { getEventsApi } from '../../api/EventsAPI.js'
 import MyFullCalendar from './components/FullCalendar.js';
 import HomeButton from '../../misc_components/HomeButton'
+import NavBar from '../../misc_components/NavBar.js';
 
 const Calendar = () => {
 
@@ -31,6 +29,9 @@ const Calendar = () => {
 
   return (
     <div>
+      <Row>
+        <NavBar />
+      </Row>
       <Row>
         <Col className='col-9'>
           <MyFullCalendar events={eventsData}/>
