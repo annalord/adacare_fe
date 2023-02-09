@@ -1,16 +1,25 @@
-// import { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import daygridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import './FullCalendar.css';
-// import { getEventsApi } from '../../../api/EventsAPI.js';
 ;
 const MyFullCalendar = (props) => {
+
+  const onEventClick = (info) => {
+    alert (`${info.event.title} : ${info.event.extendedProps.details}`)
+  }
+
+  const formatEventDetails = (events) => { 
+    return events.map((event) => {
+    return {...event, extendedProps: {details: event.details}}
+    })};
+
+    console.log(formatEventDetails(props.events))
 
   return (
     <div className="full-calendar">
       <FullCalendar 
-        events={props.events}
+        events={formatEventDetails(props.events)}
         eventColor= '#a6032f'
         editable
         selectable
@@ -22,6 +31,8 @@ const MyFullCalendar = (props) => {
         plugins={[daygridPlugin, interactionPlugin]} 
         views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
         titleFormat={ {year: 'numeric', month: 'long', day: 'numeric'} }
+        timeZone='Asia/Bangkok' // UTC+7 
+        eventClick={onEventClick}
       />
     </div>
   )

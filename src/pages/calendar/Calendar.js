@@ -14,12 +14,11 @@ const Calendar = () => {
 
   const getAllEvents = async () => {
     const data = await getEventsApi();
-    console.log(data)
     setEventsData(data);
   };
 
   useEffect( () => {
-    console.log('in useffect for calendar')
+    // console.log('in useffect for calendar')
     getAllEvents();
   }, []);
 
