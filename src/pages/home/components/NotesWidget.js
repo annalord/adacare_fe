@@ -35,7 +35,7 @@ const AllNotes = () => {
   };
 
   useEffect(() => {
-    console.log('in useffect notes')
+    // console.log('in useffect notes')
     getAllNoteData();
     }
   , []);

@@ -1,0 +1,22 @@
+#complete-button {
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+}
+
+#complete-button:focus {
+  outline: none;
+}
+
+.checklist-item-topline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checklist-item-time {
+  font-size: .75rem;
+  color: #73412f;
+}
+

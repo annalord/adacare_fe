@@ -79,5 +79,32 @@ export const postTaskApi = async (taskData, userId) => {
   }
 };
 
+// MARK A TASK COMPLETE
+export const patchCompleteTaskApi = async (id, bool) => {
+
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    withCredentials: true
+  };
+
+  const body = JSON.stringify({completed: bool}); 
+
+
+  try {
+    const response = await axios.patch(`${kBaseUrl}/dailytasks/${id}/`, body, config)
+
+    if (response.status === 200) {
+      console.log('task completed updated!')
+    }
+
+    } catch (err) {
+    console.log(`failure updating task completed: ${err}`)
+  }
+};
+
 
 

@@ -10,7 +10,7 @@ function formatTime(time) {
 
 const DailyChecklistItem = (props) => {
 
-  const handleDeleteTask = async (id) => {
+  const handleDeleteTask = async () => {
     await deleteTaskApi(props.id);
     props.getData();
   };
