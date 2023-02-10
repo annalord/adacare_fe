@@ -31,7 +31,7 @@ const MyFullCalendar = (props) => {
         plugins={[daygridPlugin, interactionPlugin]} 
         views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
         titleFormat={ {year: 'numeric', month: 'long', day: 'numeric'} }
-        timeZone='Asia/Bangkok' // UTC+7 
+        timeZone='UTC'
         eventClick={onEventClick}
       />
     </div>
