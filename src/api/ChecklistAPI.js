@@ -106,5 +106,31 @@ export const patchCompleteTaskApi = async (id, bool) => {
   }
 };
 
+//RESET ALL TASKS TO completed=false
+export const patchSetTaskIncomplete = async (id) => {
+
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    withCredentials: true
+  };
+
+  const body = JSON.stringify({completed: false}); 
+
+  try {
+    const response = await axios.patch(`${kBaseUrl}/dailytasks/${id}/`, body, config)
+
+    if (response.status === 200) {
+      console.log('task reset at midnight!')
+    }
+
+    } catch (err) {
+    console.log(`failure resetting task at midnight: ${err}`)
+  }
+};
+
 
 

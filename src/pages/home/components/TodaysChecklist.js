@@ -3,8 +3,7 @@ import './TodaysChecklist.css'
 import ListGroup from 'react-bootstrap/ListGroup';
 import TodaysChecklistItem from './TodaysChecklistItem';
 import { getTodaysEventsApi } from '../../../api/EventsAPI';
-import { getChecklistApi } from '../../../api/ChecklistAPI';
-
+import { getChecklistApi, patchSetTaskIncomplete } from '../../../api/ChecklistAPI';
 
 // get today's date in YYYY-MM-DD format
 const getTodaysDate = () => {
@@ -67,7 +66,6 @@ const formatDisplayDate = () => {
 }
 
 
-
 const TodaysChecklist = () => {
 
   const [todaysChecklistData, setTodaysChecklistData] = useState([]); 
@@ -119,6 +117,24 @@ const TodaysChecklist = () => {
     getTodaysChecklistData();
     }
   , []);
+  
+  // reset all daily tasks to completed=false at midnight each night
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const currentTime = new Date();
+      const midnight = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate() + 1, 0, 0, 0);
+      const timeToMidnight = midnight.getTime() - currentTime.getTime();
+      // const timeToMidnight = -3;
+      if (timeToMidnight < 0) {
+        const dailyData = await getChecklistApi();
+        for (const item of dailyData) {
+          await patchSetTaskIncomplete(item.id)
+        }
+        await getTodaysChecklistData();
+      }
+    }, 1800000); // check every 30 minutes
+    return () => clearInterval(interval);
+  }, []);
 
 
   const getChecklistItemArray = (data) => {
