@@ -2,22 +2,18 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState, useEffect } from 'react';
-import { postMedApi, putMedsApi } from '../../../api/MedsAPI.js';
+import { deleteMedApi, putMedsApi } from '../../../api/MedsAPI.js';
 import { useAuthContext } from '../../../hooks/useAuthContext';
-import './EditMedModal.css'
-
-
-
+import './EditMedModal.css';
 
 const EditMedModal = (props) => {
-
   const kDefaultFormState = {
     name: props.currentMedData.med_name,
     time: props.currentMedData.time,
     dosage: props.currentMedData.dosage,
     notes: props.currentMedData.notes,
-    isPrescription: props.currentMedData.is_prescription ??= '-', //nullish coalesce assignment
-    refillDate: props.currentMedData.refill_date ??= '-'
+    isPrescription: props.currentMedData.is_prescription,
+    refillDate: (props.currentMedData.refill_date ??= '-'), //nullish coalesce assignment
   };
 
   // console.log(kDefaultFormState)
@@ -32,8 +28,12 @@ const EditMedModal = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setFormData(kDefaultFormState);
-    await putMedsApi(formData, props.currentMedData.id, user.id)
-    props.getPrescriptionMeds();
+    await putMedsApi(formData, props.currentMedData.id, user.id);
+    if (formData.isPrescription) {
+      await props.getPrescriptionMeds();
+    } else {
+      await props.getOtcMeds();
+    }
     props.handleClose();
   };
 
@@ -45,6 +45,16 @@ const EditMedModal = (props) => {
     setFormData(newFormData);
   };
 
+  const handleDelete = async (event) => {
+    await deleteMedApi(props.currentMedData.id);
+    if (formData.isPrescription) {
+      await props.getPrescriptionMeds();
+    } else {
+      await props.getOtcMeds();
+    }
+    props.handleClose();
+  };
+
   return (
     <Modal show={props.isOpen} onHide={props.handleClose}>
       <Modal.Header closeButton>
@@ -52,22 +62,22 @@ const EditMedModal = (props) => {
       </Modal.Header>
 
       <Modal.Body>
-        <Form >
+        <Form>
           <p id='med-name'>{formData.name}</p>
 
           <Form.Group className='mb-3'>
-              <Form.Label>Time</Form.Label>
-              <Form.Control
-                placeholder={formData.time}
-                size='sm'
-                name='time'
-                value={formData.time}
-                onChange={handleChange}
-              />   
+            <Form.Label>Time</Form.Label>
+            <Form.Control
+              placeholder={formData.time}
+              size='sm'
+              name='time'
+              value={formData.time}
+              onChange={handleChange}
+            />
           </Form.Group>
 
           <Form.Group className='mb-3'>
-          <Form.Label>Dosage</Form.Label>
+            <Form.Label>Dosage</Form.Label>
             <Form.Control
               placeholder={formData.dosage}
               size='sm'
@@ -78,7 +88,7 @@ const EditMedModal = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-3'>
-          <Form.Label>Notes</Form.Label>
+            <Form.Label>Notes</Form.Label>
             <Form.Control
               placeholder={formData.notes}
               as='textarea'
@@ -100,7 +110,7 @@ const EditMedModal = (props) => {
               onChange={handleChange}
             />
           </Form.Group>
-          <Button id='delete-med-button'>Delete this medication</Button>
+          <Button id='delete-med-button' onClick={handleDelete}>Delete this medication</Button>
         </Form>
       </Modal.Body>
 

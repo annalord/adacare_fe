@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import { useState } from 'react';
 import EditMedModal from './EditMedModal';
-import './Prescriptions.css';
+import '../ManageMeds.css';
 
 const Prescriptions = (props) =>  {
   const [isModalOpen, setIsModalOpen] = useState([]);

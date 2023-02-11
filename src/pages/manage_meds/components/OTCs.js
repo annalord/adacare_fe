@@ -1,6 +1,18 @@
 import Table from 'react-bootstrap/Table';
+import { useState } from 'react';
+import EditMedModal from './EditMedModal';
 
 const OTCs = (props) =>  {
+  const [isModalOpen, setIsModalOpen] = useState([]);
+
+  const handleShow = id => {
+    setIsModalOpen({...isModalOpen, [id]: true});
+  }; 
+  
+  const handleClose = id => {
+    setIsModalOpen({...isModalOpen,[id]: false});
+  };
+
   return (
     <div>
       <p>Over-the-Counter Medications</p>
@@ -11,6 +23,7 @@ const OTCs = (props) =>  {
             <th>Time</th>
             <th>Dosage</th>
             <th>Notes</th>
+            <th>Refill Date</th>
             {/* <th>Refill Date</th> */}
           </tr>
         </thead>
@@ -18,11 +31,21 @@ const OTCs = (props) =>  {
           {props.data.map((med) => {
             return (
               <tr key={med.id}>
-                <td>{med.med_name}</td>
+                <td>
+                <button onClick={() => handleShow(med.id)} className='med-name-button'>
+                    {med.med_name}
+                </button>
+                </td>
                 <td>{med.time}</td>
                 <td>{med.dosage}</td>
                 <td>{med.notes}</td>
-                {/* <td>{med.refill_date}</td> */}
+                <td>{med.refill_date}</td>
+                <EditMedModal
+                    isOpen={isModalOpen[med.id]} 
+                    handleClose={() => handleClose(med.id)}
+                    currentMedData={med}
+                    getOtcMeds={props.getOtcMeds}
+                ></EditMedModal>
               </tr>
             )
           })}

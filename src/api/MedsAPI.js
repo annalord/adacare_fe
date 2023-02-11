@@ -83,3 +83,28 @@ export const putMedsApi = async (medData, medId, userId) => {
     console.log(`failure updating med: ${err}`)
   }
 };
+
+//DELETE MED
+export const deleteMedApi = async (medId) => {
+
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    withCredentials: true
+  };
+
+  try {
+    const response = await axios.delete(`${kBaseUrl}/medications/${medId}`, config)
+
+    if (response.status === 202) {
+      console.log('med updated!')
+      return response.data
+    }
+
+    } catch (err) {
+    console.log(`failure updating med: ${err}`)
+  }
+};
