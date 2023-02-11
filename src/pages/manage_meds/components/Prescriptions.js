@@ -1,6 +1,19 @@
 import Table from 'react-bootstrap/Table';
+import { useState } from 'react';
+import EditMedModal from './EditMedModal';
+import './Prescriptions.css';
 
 const Prescriptions = (props) =>  {
+  const [isModalOpen, setIsModalOpen] = useState([]);
+
+  const handleShow = id => {
+    setIsModalOpen({...isModalOpen, [id]: true});
+  }; 
+  
+  const handleClose = id => {
+    setIsModalOpen({...isModalOpen,[id]: false});
+  };
+
   return (
     <div>
       <p>Prescription Medications</p>
@@ -18,12 +31,21 @@ const Prescriptions = (props) =>  {
           {props.data.map((med) => {
             return (
               <tr key={med.id}>
-                <td>{med.med_name}</td>
+                <td>
+                  <button onClick={() => handleShow(med.id)} className='med-name-button'>
+                    {med.med_name}
+                  </button>
+                  </td>
                 <td>{med.time}</td>
                 <td>{med.dosage}</td>
                 <td>{med.notes}</td>
                 <td>{med.refill_date}</td>
-
+                <EditMedModal
+                    isOpen={isModalOpen[med.id]} 
+                    handleClose={() => handleClose(med.id)}
+                    currentMedData={med}
+                    getPrescriptionMeds={props.getPrescriptionMeds}
+                ></EditMedModal>
               </tr>
             )
           })}

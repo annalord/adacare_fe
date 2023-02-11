@@ -20,9 +20,10 @@ const AddMedModal = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormData(kDefaultFormState);
     props.handleClose();
+    console.log(formData)
     await postMedApi(formData, user.id); //post med to database
+    setFormData(kDefaultFormState);
     // get data again, update state to rerender
     if (formData.isPrescription) {
       await props.getPrescriptionMeds();
@@ -78,7 +79,6 @@ const AddMedModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Control
               placeholder='Time'
-              as='textarea'
               size='sm'
               name='time'
               value={formData.time}
@@ -101,7 +101,7 @@ const AddMedModal = (props) => {
               placeholder='Notes'
               size='sm'
               name='notes'
-              // disabled={formData.notes}
+              as='textarea'
               value={formData.notes}
               onChange={handleChange}
             />

@@ -1,0 +1,16 @@
+#med-name {
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#delete-med-button {
+  background-color: #d90b42;
+  border: solid 2px #a6023f;
+  font-size: .9rem;
+}
+
+#submit-med-change {
+  background-color: #84a608;
+  border: solid 2px green;
+}

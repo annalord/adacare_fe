@@ -54,3 +54,32 @@ export const postMedApi = async (medData, userId) => {
     console.log(`failure posting med: ${err}`)
   }
 };
+
+//UPDATE(PUT) MEDS 
+export const putMedsApi = async (medData, medId, userId) => {
+
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    withCredentials: true
+  };
+
+  const formattedRefillDate = medData.refillDate === '-'? null : medData.refillDate
+
+  const body = JSON.stringify({...medData, med_name: medData.name, is_prescription: medData.isPrescription, refill_date: formattedRefillDate, user: userId});  
+
+  try {
+    const response = await axios.put(`${kBaseUrl}/medications/${medId}/`, body, config)
+
+    if (response.status === 200) {
+      console.log('med updated!')
+      return response.data
+    }
+
+    } catch (err) {
+    console.log(`failure updating med: ${err}`)
+  }
+};

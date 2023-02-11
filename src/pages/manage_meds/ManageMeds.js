@@ -1,5 +1,4 @@
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react';
 import AddMedModal from './components/AddMedModal.js'
@@ -40,7 +39,7 @@ const ManageMeds = () => {
       </Row>
 
       <Row className='pl-4'>
-        <div>Click on a medication below to edit, or press the X to delete</div>
+        <div>Click on a medication's name to edit or delete</div>
         <Button onClick={handleShow} id='add-event-button' className='ml-3 mr-3'> Click here to add a new medication </Button> 
             <AddMedModal
             isOpen={isModalOpen}
@@ -51,11 +50,11 @@ const ManageMeds = () => {
       </Row>
 
       <Row className='pl-4'>
-        <Prescriptions data={prescriptionData}/>
+        <Prescriptions data={prescriptionData} getPrescriptionMeds={getPrescriptionMeds}/>
       </Row>
 
       <Row className='pl-4'>
-        <OTCs data={otcData} />
+        <OTCs data={otcData} getOtcMeds={getOtcMeds}/>
       </Row>
 
     </div>
