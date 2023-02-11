@@ -69,6 +69,10 @@ const formatTaskTime = (taskTime) => {
   if (hours === 12) {
     amOrPm = 'PM';
   }
+  if (hours === 0) {
+    amOrPm = 'AM';
+    hours = 12;
+  }
   if (hours > 12) {
     hours -= 12;
     amOrPm = 'PM';
@@ -138,6 +142,9 @@ const TodaysChecklist = () => {
 
       if (amPm === 'pm' && numTime[0] !== '12') {
         numTime[0] = parseInt(numTime[0], 10) + 12; //parseInt changes string to integer base 10
+      }
+      if (amPm === 'am' && numTime[0] === '12') {
+        numTime[0] = parseInt(numTime[0], 10) - 12; //parseInt changes string to integer base 10
       }
       return parseInt(numTime.join(''), 10);
     };

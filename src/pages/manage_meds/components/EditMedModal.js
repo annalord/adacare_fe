@@ -23,6 +23,7 @@ const EditMedModal = (props) => {
 
   useEffect(() => {
     setFormData(kDefaultFormState);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.isOpen]);
 
   const handleSubmit = async (event) => {

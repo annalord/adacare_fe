@@ -4,10 +4,10 @@ import './TodaysChecklistItem.css';
 
 
 
-function formatTime(time) {
-  let date = new Date("1970-01-01 " + time);
-  return date.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
-};
+// function formatTime(time) {
+//   let date = new Date("1970-01-01 " + time);
+//   return date.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
+// };
 
 
 const TodaysChecklistItem = (props) => {
@@ -25,7 +25,7 @@ const TodaysChecklistItem = (props) => {
   return (
     <div className='checklist-item'>
         <div className='checklist-item-topline'>
-          <p className='checklist-item-time'>{formatTime(props.time)}</p>
+          <p className='checklist-item-time'>{props.time}</p>
           <button onClick={handleCheckOffTask} id='complete-button'>
           {props.completed ? '✅' : '⃝' }
           </button>
