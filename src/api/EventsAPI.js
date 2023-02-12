@@ -3,6 +3,11 @@ import Cookies from 'js-cookie';
 
 const kBaseUrl = process.env.REACT_APP_BE_URL;
 
+
+const getUserLsToken =  () => {
+  return JSON.parse(window.localStorage.getItem('user')).token;
+};
+
 //GET ALL EVENTS 
 export const getEventsApi = async () => {
 
@@ -11,6 +16,7 @@ export const getEventsApi = async () => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -36,6 +42,7 @@ export const getTodaysEventsApi = async (todaysDate) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -62,6 +69,7 @@ export const postEventApi = async (eventData, userId) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -88,6 +96,7 @@ export const patchCompleteEventApi = async (id, bool) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };

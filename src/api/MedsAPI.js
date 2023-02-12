@@ -1,7 +1,12 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+
 const kBaseUrl = process.env.REACT_APP_BE_URL;
+const getUserLsToken =  () => {
+  return JSON.parse(window.localStorage.getItem('user')).token;
+};
+
 
 //GET MEDS 
 export const getMedsApi = async (isPrescription) => {
@@ -11,6 +16,7 @@ export const getMedsApi = async (isPrescription) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -37,6 +43,7 @@ export const postMedApi = async (medData, userId) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -63,6 +70,7 @@ export const putMedsApi = async (medData, medId, userId) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -92,6 +100,7 @@ export const deleteMedApi = async (medId) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };

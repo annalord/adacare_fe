@@ -3,6 +3,10 @@ import Cookies from 'js-cookie';
 
 const kBaseUrl = process.env.REACT_APP_BE_URL;
 
+const getUserLsToken =  () => {
+  return JSON.parse(window.localStorage.getItem('user')).token;
+};
+
 //GET ALL TASKS 
 export const getChecklistApi = async () => {
 
@@ -11,7 +15,7 @@ export const getChecklistApi = async () => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
-    },
+      'Authorization': `Token ${getUserLsToken()}`    },
     withCredentials: true
   };
 
@@ -36,6 +40,7 @@ export const deleteTaskApi = async (id) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -61,6 +66,7 @@ export const postTaskApi = async (taskData, userId) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -87,6 +93,7 @@ export const patchCompleteTaskApi = async (id, bool) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -114,6 +121,7 @@ export const patchSetTaskIncomplete = async (id) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };

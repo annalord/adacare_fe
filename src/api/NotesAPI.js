@@ -1,8 +1,13 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-// import { useState, useEffect } from 'react';
+
 
 const kBaseUrl = process.env.REACT_APP_BE_URL;
+const getUserLsToken =  () => {
+  return JSON.parse(window.localStorage.getItem('user')).token;
+};
+
+
 
 //GET ALL NOTES 
 export const getNotesApi = async () => {
@@ -12,6 +17,7 @@ export const getNotesApi = async () => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
@@ -38,6 +44,7 @@ export const postNotesApi = async (noteData, userId) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };

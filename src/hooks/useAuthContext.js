@@ -24,6 +24,7 @@ const kInitialUserState = {
   isLoggedIn: false,
   name: null,
   id: null,
+  token: null
 };
 
 const AuthContext = createContext();
@@ -56,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   const authLogout = () => {
     setUser(kInitialUserState);
     setItemInLocalStorage("user", kInitialUserState);
-    setItemInLocalStorage()
+    // setItemInLocalStorage()
     navigate("/login");
   };
 

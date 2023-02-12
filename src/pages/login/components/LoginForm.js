@@ -34,6 +34,7 @@ const LoginForm = () => {
         isLoggedIn: true,
         name: response.data.user_name,
         id: response.data.user_id,
+        token: response.data.key
       });
     }
   };

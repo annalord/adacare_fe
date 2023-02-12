@@ -3,6 +3,10 @@ import Cookies from 'js-cookie';
 
 
 const kBaseUrl = process.env.REACT_APP_BE_URL;
+const getUserLsToken =  () => {
+  return JSON.parse(window.localStorage.getItem('user')).token;
+};
+
 
 export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstName:first_name }) => {
 
@@ -34,8 +38,6 @@ export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstN
 
 export const loginAPI = async ({ username, password }) => {
 
-  // const csrfResponse = await axios.get(`${kBaseUrl}/csrf`)
-
   const body = JSON.stringify({ username, password, withCredentials: true});
   const config = {
     headers: {
@@ -47,12 +49,12 @@ export const loginAPI = async ({ username, password }) => {
   }
 
   try {
-    console.log(`token before login with cookies.get ${Cookies.get('csrftoken')}`);
+    // console.log(`token before login with cookies.get ${Cookies.get('csrftoken')}`);
     // console.log(`token before login with csrfResponse ${csrfResponse.data.csrfToken}`);
     const response = await axios.post(`${kBaseUrl}/login`, body, config);
 
     if (response.data.success) {
-      console.log(`token after login with cookies.get ${Cookies.get('csrftoken')}`);
+      // console.log(`token after login with cookies.get ${Cookies.get('csrftoken')}`);
       console.log('login success')
       return response
     } else {
@@ -70,17 +72,18 @@ export const logoutAPI = async () => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
     },
     withCredentials: true
   };
 
   try {
-    console.log(`logout token: ${Cookies.get('csrftoken')}`);
+    // console.log(`logout token: ${Cookies.get('csrftoken')}`);
     const response = await axios.post(`${kBaseUrl}/logout`, config);
 
     if (response.data.success) {
       console.log('logged out');
-      window.sessionStorage.clear();
+      // window.sessionStorage.clear();
       window.localStorage.clear();  
       return response
 
