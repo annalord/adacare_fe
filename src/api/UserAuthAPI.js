@@ -55,6 +55,8 @@ export const loginAPI = async ({ username, password }) => {
       console.log(`token after login with cookies.get ${Cookies.get('csrftoken')}`);
       console.log('login success')
       return response
+    } else {
+      console.log('login did NOT return a successful reponse - probably PW do not match')
     }
   } catch (err) {
     console.log(`LOGIN FAIL: ${err}`);
@@ -78,7 +80,10 @@ export const logoutAPI = async () => {
 
     if (response.data.success) {
       console.log('logged out');
+      window.sessionStorage.clear();
+      window.localStorage.clear();  
       return response
+
     }
   } catch (err) {
     console.log(`LOGOUT  FAIL: ${err}`);
