@@ -1,0 +1,19 @@
+#checklist-description {
+  background-color: white;
+  color: black;
+  border: solid #f23535;
+  padding: 3px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+#checklist-mng {
+  background-color: #d90b42;
+  /* background-color: #402d32; */
+  border-radius: 10px;
+  padding: 20px;
+  font-size: .9rem;
+  margin-top: 1vh;
+  margin-left: 2.5vw;
+  width: 40vw;
+}

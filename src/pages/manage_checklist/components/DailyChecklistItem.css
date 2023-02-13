@@ -1,0 +1,28 @@
+#delete-button {
+  background-color: #402d32;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  font-size: .75rem;
+}
+
+#delete-button:focus {
+  outline: none;
+}
+
+.checklist-item-mng {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checklist-time {
+  font-size: .75rem;
+  color: #73412f;
+}
+
+.checklist-item-mng-topline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

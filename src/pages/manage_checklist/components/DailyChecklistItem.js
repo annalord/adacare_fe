@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import { deleteTaskApi } from '../../../api/ChecklistAPI.js'
+import './DailyChecklistItem.css';
 
 
 function formatTime(time) {
@@ -16,9 +17,13 @@ const DailyChecklistItem = (props) => {
   };
 
   return (
-    <div className='note'>
-        <div>{props.task} - {formatTime(props.time)}</div>
-        <Button onClick={handleDeleteTask}>X</Button>
+    <div>
+      <div className='checklist-item-mng-topline'>
+        <p className='checklist-time'>{formatTime(props.time)}</p>
+        <Button onClick={handleDeleteTask} id='delete-button'>X</Button>
+      </div>
+      <div>{props.task}</div>
+
     </div>
   )
 };

@@ -25,20 +25,20 @@ const ManageToDos = () => {
 
 
   return (
-    <div>
+    <div id='mng-checklist-page'>
       <Container fluid>
         <Row >
           <NavBar />
         </Row>
 
-        <Row className='mt-1'>
-          <Col>
+        <Row className='mt-3'>
+          <Col className='ml-5'>
             <DailyChecklist
               checklistData={checklistData}
               getAllChecklistData={getAllChecklistData}
             />
           </Col>
-          <Col>
+          <Col id='add-task-col'>
             <AddTaskForm
               getAllChecklistData={getAllChecklistData} />
           </Col>

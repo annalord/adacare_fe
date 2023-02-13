@@ -1,5 +1,6 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import DailyChecklistItem from './DailyChecklistItem.js';
+import './DailyChecklist.css'
 
 
 const DailyChecklist = (props) => {
@@ -23,7 +24,8 @@ const DailyChecklist = (props) => {
   
   return (
     <div>
-      <ListGroup>{getTaskItemArray(props.checklistData)}</ListGroup>
+      <p id='checklist-description'>These tasks will appear each day in "Today's Checklist" on the home page. You can add a new daily task or press "X" to delete. </p>
+      <ListGroup id='checklist-mng'>{getTaskItemArray(props.checklistData)}</ListGroup>
     </div>
   );
 };

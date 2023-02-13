@@ -32,8 +32,8 @@ const AddTaskForm = (props) => {
     }
   
   return (
-    <div>
-      <Form onSubmit={handleSubmit} id='login-form'>
+    <div id='addtask-form'>
+      <Form onSubmit={handleSubmit} >
         <Form.Group className='mb-3' controlId='formUsername'>
           <Form.Label className='label'>Task</Form.Label>
           <Form.Control
@@ -55,7 +55,7 @@ const AddTaskForm = (props) => {
         </Form.Group>
 
         <div className='text-center'>
-          <Button type='submit' id='login-button'>Add checklist item!</Button>
+          <Button type='submit' id='addtask-button'>Add checklist item!</Button>
         </div>
       </Form>
     </div>

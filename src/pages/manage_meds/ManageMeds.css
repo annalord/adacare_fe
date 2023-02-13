@@ -2,53 +2,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #a6032f;
   height: 100vh;
 }
 
 #add-med-button {
   background-color: #f2f2f2;
   color: black;
-  border: none;
-  width: 20vw;
-  border-radius: 50px
+  border: solid #f23535;
+  width: 17vw;
+  border-radius: 10px
 }
 
 #add-med-button:hover {
   color:#a6032f;
 }
-/* #add-med-button:active {
-  border: #84a608;
-  outline: none;
-  box-shadow: none;
-} */
 
 .bubble {
-  position: relative;
-  background: linear-gradient(-151deg, #84a608 15%, #f2f2f2 72%);
-  color: black;
-  font-size: 14px;
-  line-height: 20px;
-  box-shadow: 1px 1px 1px 0px rgba(242, 242, 242, 0.84);
-  text-align: center;
-  width: 250px;
-  height: 60px;
-  border-radius: 29px;
-  padding-top:7px;
-}
+    position: relative;
+    background: linear-gradient(-133deg, #f2f2f2 12%, #f23535 86%);
+    color: black;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 20px;
+    box-shadow: 2px 2px 2px 0px rgba(166, 3, 47, 0.84);
+    text-align: center;
+    width: 250px;
+    height:60px;
+    border-radius: 29px;
+    padding: 7px;
+  }
 .bubble:after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  z-index: 1;
-  border-style: solid;
-  border-width: 0 21px 21px 0;
-  border-color: transparent #f2f2f2 transparent transparent;
-  bottom: -21px;
-  left: 15%;
-  margin-left: -10.5px;
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 0 21px 21px 0;
+    border-color: transparent #f23535 transparent transparent;
+    bottom: -21px;
+    left: 15%;
+    margin-left: -10.5px;
 }
+
 
 
 #button-col {
