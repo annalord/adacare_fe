@@ -59,7 +59,7 @@ const EditMedModal = (props) => {
   return (
     <Modal show={props.isOpen} onHide={props.handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Edit this medication:</Modal.Title>
+        <Modal.Title>Edit this medication</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>

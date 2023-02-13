@@ -11,7 +11,7 @@ function NavBar() {
   console.log(locationPath)
 
   return (
-    <Navbar bg='light' expand='lg' relative='top'>
+    <Navbar bg='light' expand='lg' relative='top' className='border-bottom'>
       <Container>
         <Navbar.Brand href='#home'>
           <img src={bird} alt='cardinal drawing' id='navbird'></img>

@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { postMedApi } from '../../../api/MedsAPI.js';
 import { useAuthContext } from '../../../hooks/useAuthContext';
+import './AddMedModal.css';
 
 const kDefaultFormState = {
   name: '',
@@ -51,24 +52,16 @@ const AddMedModal = (props) => {
   return (
     <Modal show={props.isOpen} onHide={props.handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Add New Medication</Modal.Title>
+        <Modal.Title>Add a new medication</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
         <Form>
 
-        <Form.Group className='mb-1'>
-            <Form.Check
-              name='isPrescription'
-              label='Check if medication is a prescription'
-              id='prescription checkbox'
-              onChange={handleIsPrescriptionChange}
-            />
-          </Form.Group>
-
-          <Form.Group className='mb-1 mt-1'>
+          <Form.Group className='mb-1'>
+            <Form.Label>Medication name</Form.Label>
             <Form.Control
-              placeholder='Medication name'
+              // placeholder='Medication name'
               size='sm'
               name='name'
               value={formData.name}
@@ -77,8 +70,9 @@ const AddMedModal = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-1'>
+            <Form.Label className='mt-2'>Time of day</Form.Label>
             <Form.Control
-              placeholder='Time'
+              // placeholder='Time'
               size='sm'
               name='time'
               value={formData.time}
@@ -87,8 +81,9 @@ const AddMedModal = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-1'>
+            <Form.Label className='mt-2'>Dosage</Form.Label>
             <Form.Control
-              placeholder='Dosage'
+              // placeholder='Dosage'
               size='sm'
               name='dosage'
               value={formData.dosage}
@@ -97,8 +92,9 @@ const AddMedModal = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-1'>
+            <Form.Label className='mt-2'>Notes</Form.Label>
             <Form.Control
-              placeholder='Notes'
+              // placeholder='Notes'
               size='sm'
               name='notes'
               as='textarea'
@@ -107,15 +103,26 @@ const AddMedModal = (props) => {
             />
           </Form.Group>
           <Form.Group className='mb-1'>
+            <Form.Label className='mt-2'>Refill date (if applicable)</Form.Label>
             <Form.Control
-              placeholder='Refill date (YYYY-MM-DD)'
+              // placeholder='Refill date (if applicable)'
               size='sm'
               name='refillDate'
-              disabled={!formData.isPrescription}
+              // disabled={!formData.isPrescription}
               value={formData.refillDate}
               onChange={handleChange}
             />
           </Form.Group>
+
+          <Form.Group className='mb-1 mt-4'>
+            <Form.Check
+              name='isPrescription'
+              label='Check here if medication is a prescription'
+              id='prescription checkbox'
+              onChange={handleIsPrescriptionChange}
+            />
+          </Form.Group>
+
         </Form>
       </Modal.Body>
 
@@ -123,8 +130,8 @@ const AddMedModal = (props) => {
         <Button variant='secondary' onClick={props.handleClose}>
           Close
         </Button>
-        <Button variant='primary' onClick={handleSubmit}>
-          Add Event
+        <Button id='submit-med' onClick={handleSubmit}>
+          Add Medication
         </Button>
       </Modal.Footer>
     </Modal>
