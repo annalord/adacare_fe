@@ -1,9 +1,10 @@
 #notes-container {
-  background-color: #f23535;
+  background-color: #a6032f;
   /* max-height: 75vh; */
   border-radius: 10px;
   padding: 20px;
-  font-size: .75rem;
+  font-size: .8rem;
+  color: white;
 }
 
 #notes-listgroup {
@@ -21,7 +22,7 @@
 } */
 
 #new-note-box {
-  background-color:#a6032f;
+  background-color:#f23535;;
   height: 20vh;
   border-radius: 10px;
 }
@@ -44,8 +45,8 @@
 }
 
 #notes-title {
-  font-family: 'Lobster Two', cursive;
-  font-size: 4vh;
+  /* font-family: 'Lobster Two', cursive; */
+  font-size: 3vh;
   text-align: center;
 }
 
@@ -54,4 +55,24 @@
   border: none;
   box-shadow:  3px 3px 5px #402d32;
   color: black;
+}
+
+#note-submit:hover {
+  background-color: black;
+  border: none;
+  box-shadow:  3px 3px 5px #84a608;
+  color: #f2f2f2;
+}
+
+#no-notes {
+  background-color: #f2f2f2;
+  color: black;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 0.3vh;
+  font-size: .85rem;
+  text-align: center;
+  border-radius: 10px;
+  font-style: italic;
 }

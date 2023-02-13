@@ -22,6 +22,15 @@ const kDefaultFormState = {
   message: "",
 };
 
+const noNotes = () => {
+  return (
+    <div id="no-notes">
+      <p>No notes have been added yet!</p>
+      <p>Use the form below to add the first note.</p>
+    </div>
+  )
+}
+
 
 const AllNotes = () => {
 
@@ -75,7 +84,7 @@ const AllNotes = () => {
     <div id='notes-container'>
 
       <h2 id='notes-title'>Notes</h2>
-
+      {(getNoteItemArray(notesData).length===0) && noNotes()}
       <ListGroup id='notes-listgroup'>{getNoteItemArray(notesData)}</ListGroup>
 
       <div id='new-note-box'>

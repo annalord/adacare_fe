@@ -10,6 +10,43 @@ import LogoutButton from '../../misc_components/LogoutButton'
 import AdaCareBanner from '../../misc_components/AdaCareBanner'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
+// format today's date to display on screen
+const formatDisplayDate = () => {
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const now = new Date();
+  // console.log(now)
+  return (
+    days[now.getDay()] +
+    ', ' +
+    months[now.getMonth()] +
+    ' ' +
+    now.getDate() +
+    ', ' +
+    now.getFullYear()
+  );
+};
 
 
 const Home = () => {
@@ -20,36 +57,37 @@ const Home = () => {
     <div> 
       <Container fluid>
 
-        <Row>
+        <Row className='border-bottom'>
           <AdaCareBanner/>
         </Row>
 
         <Row>
-          <Col id='nav-container'>
+          <Col id='nav-container' className='col-3'>
 
-            <p> {user.name} </p>
+            <p id="user_firstname"> {user.name} </p>
 
             <Link to={`/managechecklist`}>
-              <Button> Manage Daily Checklist </Button>
+              <Button className='home-buttons'> Manage Daily Checklist  ✅</Button>
             </Link>
 
             <Link to={`/calendar`}>
-              <Button> View and Update Calendar </Button>
+              <Button className='home-buttons'> View and Update Calendar 🗓️</Button>
             </Link>
 
             <Link to={`/managemeds`}>
-              <Button> View and Manage Medications </Button>
+              <Button className='home-buttons'> View and Manage Medications 💊</Button>
             </Link>
 
             <LogoutButton/>
 
           </Col>
 
-          <Col>
+          <Col className='mt-3 mb-3' >
+            <p id='todays-date' >{formatDisplayDate()}</p>
             <TodaysChecklist></TodaysChecklist>
           </Col>
 
-          <Col>
+          <Col className='mt-3 mb-3'>
             <AllNotes/>
           </Col>
         </Row>

@@ -1,12 +1,28 @@
-#todo-container {
-  background-color: #a6032f;
+#todays-checklist-container {
+  background-color: #d90b42;
   /* height: 75vh; */
+  /* background-color: #402d32; */
   border-radius: 10px;
   padding: 20px;
+  font-size: .9rem;
+  margin-top: 1vh;
 }
 
-#checklist-date {
-  font-family: 'Lobster Two', cursive;
-  font-size: 1.5rem;
+#checklist-title {
+  /* font-family: 'Lobster Two', cursive; */
+  font-size: 3vh;
   text-align: center;
+  color: white;
+}
+
+#no-checklist-items {
+  background-color: #f2f2f2;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 0.3vh;
+  font-size: .85rem;
+  text-align: center;
+  border-radius: 10px;
+  font-style: italic;
 }

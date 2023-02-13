@@ -21,44 +21,6 @@ const getTodaysDate = () => {
   return [year, month, day].join('-');
 };
 
-// format today's date to display on screen
-const formatDisplayDate = () => {
-  const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  const now = new Date();
-  // console.log(now)
-  return (
-    days[now.getDay()] +
-    ', ' +
-    months[now.getMonth()] +
-    ' ' +
-    now.getDate() +
-    ', ' +
-    now.getFullYear()
-  );
-};
-
 // format daily task times without seconds and to AM PM
 const formatTaskTime = (taskTime) => {
   const dateTime = new Date(`1970-01-01T${taskTime}`);
@@ -104,6 +66,15 @@ const formatEventTime = (eventDateTime) => {
 
   return `${hours}:${minutes} ${amOrPm}`;
 };
+
+const noChecklistItems = () => {
+  return (
+    <div id="no-checklist-items">
+      <p>There are no checklist items to display.</p>
+      <p>Go to the checklist or calendar page to get started!</p>
+    </div>
+  )
+}
 
 const TodaysChecklist = () => {
   const [todaysChecklistData, setTodaysChecklistData] = useState([]);
@@ -201,8 +172,9 @@ const TodaysChecklist = () => {
   };
 
   return (
-    <div>
-      <p id='checklist-date'>{formatDisplayDate()}</p>
+    <div id='todays-checklist-container'>
+      <p id='checklist-title'>Today's Checklist</p>
+      {(getChecklistItemArray(todaysChecklistData).length === 0) && noChecklistItems()}
       <ListGroup>{getChecklistItemArray(todaysChecklistData)}</ListGroup>
     </div>
   );
