@@ -10,8 +10,23 @@ const kDefaultFormState = {
   password: '',
 };
 
+const isError = () => {
+  return (
+    <div id='login-error-message'>
+      <p>
+        The username or password you entered is incorrect.
+      </p>
+      <p>
+        Please try again.
+      </p>
+    </div>
+  );
+};
+
 const LoginForm = () => {
   const [formData, setFormData] = useState(kDefaultFormState);
+  const [ loginUnsuccessful, setLoginUnsuccessful ] = useState(false)
+
   const { authLogin } = useAuthContext();
 
   const handleChange = (event) => {
@@ -26,21 +41,24 @@ const LoginForm = () => {
     event.preventDefault();
     const response = await loginAPI(formData);
     setFormData(kDefaultFormState);
-    // console.log(response);
+    console.log(response);
 
-    if (response.status === 200) {
-      // console.log(`in loginform handlesubmit if statement`);
+    if (response.data.success) {
       authLogin({
         isLoggedIn: true,
         name: response.data.user_name,
         id: response.data.user_id,
         token: response.data.key
       });
+    } else {
+      setLoginUnsuccessful(true)
     }
+
   };
 
   return (
     <div>
+      {loginUnsuccessful && isError()}
       <Form onSubmit={handleSubmit} id='login-form'>
         <Form.Group className='mb-3' controlId='formUsername'>
           <Form.Label className='label'>Username</Form.Label>

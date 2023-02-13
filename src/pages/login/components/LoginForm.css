@@ -17,3 +17,8 @@
 #login-button:hover {
   box-shadow: 2px 2px 2px #84a608;
 }
+
+#login-error-message {
+  font-size: .85rem;
+  text-align: center;
+}

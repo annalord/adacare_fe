@@ -49,17 +49,13 @@ export const loginAPI = async ({ username, password }) => {
   }
 
   try {
-    // console.log(`token before login with cookies.get ${Cookies.get('csrftoken')}`);
-    // console.log(`token before login with csrfResponse ${csrfResponse.data.csrfToken}`);
     const response = await axios.post(`${kBaseUrl}/login`, body, config);
-
     if (response.data.success) {
-      // console.log(`token after login with cookies.get ${Cookies.get('csrftoken')}`);
       console.log('login success')
-      return response
-    } else {
-      console.log('login did NOT return a successful reponse - probably PW do not match')
-    }
+    } 
+
+    return response
+
   } catch (err) {
     console.log(`LOGIN FAIL: ${err}`);
   }
