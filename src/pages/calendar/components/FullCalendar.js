@@ -11,7 +11,7 @@ const MyFullCalendar = (props) => {
 
   const formatEventDetails = (events) => { 
     return events.map((event) => {
-    return {...event, extendedProps: {details: event.details}}
+    return {...event, allDay: event.all_day, extendedProps: {details: event.details}}
     })};
 
     // console.log(formatEventDetails(props.events))

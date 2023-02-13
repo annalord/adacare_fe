@@ -31,10 +31,10 @@ const AddEventModal = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormData(kDefaultFormState);
     props.handleClose();
     console.log(prepEventForSubmit(formData))
     await postEventApi(prepEventForSubmit(formData), user.id); //post note to database
+    setFormData(kDefaultFormState);
     props.getAllEvents(); // get data again, updates state to rerender
   };
 

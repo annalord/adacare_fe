@@ -74,7 +74,7 @@ export const postEventApi = async (eventData, userId) => {
     withCredentials: true
   };
 
-  const body = JSON.stringify({...eventData, user: userId}); 
+  const body = JSON.stringify({...eventData, all_day: eventData.allDay, user: userId}); 
   try {
     const response = await axios.post(`${kBaseUrl}/events/`,body, config)
 
