@@ -3,8 +3,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import bird from '../littlebird-nobg.png';
 import './NavBar.css';
+import { useLocation } from "react-router-dom";
 
 function NavBar() {
+
+  const locationPath = useLocation().pathname;
+  console.log(locationPath)
+
   return (
     <Navbar bg='light' expand='lg' relative='top'>
       <Container>
@@ -15,9 +20,9 @@ function NavBar() {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='me-auto'>
             <Nav.Link href='/home'>Home</Nav.Link>
-            <Nav.Link href='/calendar'>Calendar</Nav.Link>
-            <Nav.Link href='/managemeds'>Medications</Nav.Link>
-            <Nav.Link href='/managechecklist'>Daily Checklist</Nav.Link>
+            {locationPath !== "/calendar" && <Nav.Link href='/calendar'>Calendar</Nav.Link>}
+            {locationPath !== "/managemeds" && <Nav.Link href='/managemeds'>Medications</Nav.Link>}
+            {locationPath !== "/managechecklist" && <Nav.Link href='/managechecklist'>Daily Checklist</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>
