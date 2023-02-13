@@ -15,6 +15,19 @@ const kDefaultFormState = {
   pwRepeat: ''
 };
 
+const usernameError = () => {
+  return (
+    <p className='signup-error-message'>That username is already taken.</p>
+  );
+};
+
+const pwMismatchError = () => {
+  return (
+    <p className='signup-error-message'>Passwords do not match.</p>
+  );
+};
+
+
 const SignUp = () => {
 
   const navigate = useNavigate();
@@ -23,11 +36,14 @@ const SignUp = () => {
   };
 
   const [formData, setFormData] = useState(kDefaultFormState);
+  const [signupStatus, setSignupStatus] = useState( {usernameTaken: false, pwMismatch: false})
+
 
   const handleChange = (event) => {
     const fieldValue = event.target.value;
     const fieldName = event.target.name;
     const newFormData = { ...formData, [fieldName]: fieldValue };
+    setSignupStatus({usernameTaken: false, pwMismatch: false})
 
     setFormData(newFormData);
   };
@@ -39,6 +55,10 @@ const SignUp = () => {
 
     if (response.data.success) {
       goToLogin();
+    } else if (response.data.username_error) {
+      setSignupStatus({...signupStatus, usernameTaken: true})
+    } else if (response.data.password_error) {
+      setSignupStatus({...signupStatus, pwMismatch: true})
     }
   };
 
@@ -62,8 +82,8 @@ const SignUp = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-
             <Form.Group className='mb-3' controlId='formUsername'>
+              {signupStatus.usernameTaken && usernameError()}
               <Form.Label className='label'>Username</Form.Label>
               <Form.Control
                 type='text'
@@ -82,8 +102,9 @@ const SignUp = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-
+            
             <Form.Group className='mb-3' controlId='formPwRepeat'>
+              {signupStatus.pwMismatch && pwMismatchError()}
               <Form.Label className='label'>Repeat password</Form.Label>
               <Form.Control
                 type='password'

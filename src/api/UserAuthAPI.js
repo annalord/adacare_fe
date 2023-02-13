@@ -25,12 +25,11 @@ export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstN
 
     if (response.data.success) {
       console.log('sign up success')
-    } else {
-      console.log('username taken or PW do not match')
-    }
+    } 
+      
     return response;
 
-  } catch (err) {
+    } catch (err) {
     console.log(`SIGN UP FAIL: ${err}`);
   } 
   

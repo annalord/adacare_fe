@@ -45,4 +45,10 @@
   text-decoration: underline;
 }
 
-/* 84a608 */
+.signup-error-message {
+  font-size: .85rem;
+  text-align: center;
+  color: white;
+  border:solid 1px #84a608;
+  border-radius: 5px;
+}
