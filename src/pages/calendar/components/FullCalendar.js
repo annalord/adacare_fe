@@ -14,7 +14,7 @@ const MyFullCalendar = (props) => {
     return {...event, extendedProps: {details: event.details}}
     })};
 
-    console.log(formatEventDetails(props.events))
+    // console.log(formatEventDetails(props.events))
 
   return (
     <div className="full-calendar mt-3 ml-3 mb-3">

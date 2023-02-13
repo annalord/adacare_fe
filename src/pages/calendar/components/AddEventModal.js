@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { postEventApi } from '../../../api/EventsAPI.js';
 import { useAuthContext } from '../../../hooks/useAuthContext';
+import './AddEventModal.css'
 
 const kDefaultFormState = {
   title: '',
@@ -32,6 +33,7 @@ const AddEventModal = (props) => {
     event.preventDefault();
     setFormData(kDefaultFormState);
     props.handleClose();
+    console.log(prepEventForSubmit(formData))
     await postEventApi(prepEventForSubmit(formData), user.id); //post note to database
     props.getAllEvents(); // get data again, updates state to rerender
   };
@@ -61,8 +63,9 @@ const AddEventModal = (props) => {
       <Modal.Body>
         <Form>
           <Form.Group className='mb-1 mt-1'>
+            <Form.Label>Event title</Form.Label>
             <Form.Control
-              placeholder='Event title'
+              // placeholder='Event title'
               size='sm'
               name='title'
               value={formData.title}
@@ -71,8 +74,9 @@ const AddEventModal = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-1'>
+            <Form.Label>Event details</Form.Label>
             <Form.Control
-              placeholder='Event details'
+              // placeholder='Event details'
               as='textarea'
               size='sm'
               name='details'
@@ -81,18 +85,20 @@ const AddEventModal = (props) => {
             />
           </Form.Group>
 
-          <Form.Group className='mb-1'>
+          <Form.Group className='mb-3 mt-3'>
             <Form.Check
               name='allDay'
-              label='All day'
+              label='Check if this is an all-day event'
               id='all day checkbox'
               onChange={handleAllDayChange}
             />
           </Form.Group>
 
           <Form.Group className='mb-1'>
+            <Form.Label>Start date and time</Form.Label>
             <Form.Control
-              placeholder='Start time and date'
+              // placeholder='Start time and date'
+              type='datetime-local'
               size='sm'
               name='start'
               value={formData.start}
@@ -101,8 +107,10 @@ const AddEventModal = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-1'>
+            <Form.Label>End date and time</Form.Label>
             <Form.Control
-              placeholder='End time and date'
+              // placeholder='End time and date'
+              type='datetime-local'
               size='sm'
               name='end'
               disabled={formData.allDay}
@@ -117,7 +125,7 @@ const AddEventModal = (props) => {
         <Button variant='secondary' onClick={props.handleClose}>
           Close
         </Button>
-        <Button variant='primary' onClick={handleSubmit}>
+        <Button id='submit-event' onClick={handleSubmit}>
           Add Event
         </Button>
       </Modal.Footer>

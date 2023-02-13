@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 function NavBar() {
 
   const locationPath = useLocation().pathname;
-  console.log(locationPath)
 
   return (
     <Navbar bg='light' expand='lg' relative='top' className='border-bottom'>

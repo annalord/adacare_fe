@@ -52,7 +52,7 @@ const ManageMeds = () => {
             id='add-med-button'
             className='ml-3 mr-3 mt-5'
           >
-            ✚ Add a new medication{' '}
+            ✚ Add a new medication
           </Button>
           <AddMedModal
             isOpen={isModalOpen}
