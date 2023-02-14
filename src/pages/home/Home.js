@@ -9,6 +9,9 @@ import './Home.css'
 import LogoutButton from '../../misc_components/LogoutButton'
 import AdaCareBanner from '../../misc_components/AdaCareBanner'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
+import checklistIcon from '../../checklist.png'
+import calendarIcon from '../../calendar.png'
+import medsIcon from '../../meds.png'
 
 // format today's date to display on screen
 const formatDisplayDate = () => {
@@ -66,16 +69,26 @@ const Home = () => {
 
             <p id="user_firstname"> {user.name} </p>
 
+            <div>
+                <img src={checklistIcon} alt='checklist icon' className='menu-icons'></img>
+            </div>
             <Link to={`/managechecklist`}>
-              <Button className='home-buttons'> Manage Daily Checklist  ✅</Button>
+              <Button className='home-buttons'> Manage Daily Checklist</Button>
             </Link>
 
+            <div>
+                <img src={calendarIcon} alt='calendar icon' className='menu-icons'></img>
+            </div>
             <Link to={`/calendar`}>
-              <Button className='home-buttons'> View and Update Calendar 🗓️</Button>
+              <Button className='home-buttons'> View and Update Calendar</Button>
             </Link>
 
+
+            <div>
+                <img src={medsIcon} alt='meds icon' className='menu-icons'></img>
+            </div>
             <Link to={`/managemeds`}>
-              <Button className='home-buttons'> View and Manage Medications 💊</Button>
+              <Button className='home-buttons'> View and Manage Medications</Button>
             </Link>
 
             <LogoutButton/>

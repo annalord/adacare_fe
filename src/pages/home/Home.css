@@ -3,7 +3,7 @@
   /* background-color: #f2f2f2; */
   display: flex;
   flex-direction: column;
-  /* height: 110vh; */
+  max-height: 200vh;
   align-items: center;
 }
 
@@ -24,7 +24,7 @@
   border: none;
   color: #f2f2f2;
   width: 16vw;
-  margin-top: 3vh;
+  margin-top: 1vh;
   margin-bottom: 3vh;
   box-shadow:  3px 3px 5px #f23525;
 }
@@ -44,4 +44,11 @@
   /* border: solid 2px black; */
   width: fit-content;
   margin: auto;
+}
+
+.menu-icons {
+  background-color: white;
+  padding: 3px;
+  border-radius: 10px;
+  width: 4vw;
 }
