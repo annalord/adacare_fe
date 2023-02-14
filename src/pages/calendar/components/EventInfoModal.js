@@ -12,7 +12,7 @@ const EventInfoModal = (props) => {
     props.handleClose();
   };
 
-  // console.log(props.selectedEventInfo?.event?.id)
+  // console.log((props.selectedEventInfo?.event?.start))
 
   return (
     <Modal show={props.isOpen} onHide={props.handleClose}>
@@ -31,11 +31,11 @@ const EventInfoModal = (props) => {
         </p>
         <p>
           <span className='event-info-labels'>Start: </span>
-          {new Date(props.selectedEventInfo?.event?.start).toLocaleString()}
+          {new Date(props.selectedEventInfo?.event?.start).toLocaleString('en-US', {timeZone: 'UTC'})}
         </p>
         <p>
           <span className='event-info-labels'>End: </span>
-          {new Date(props.selectedEventInfo?.event?.end).toLocaleString()} 
+          {(new Date(props.selectedEventInfo?.event?.end).toLocaleString('en-US', {timeZone: 'UTC'}) === '1/1/1970, 12:00:00 AM') ? ' ' : (new Date(props.selectedEventInfo?.event?.end).toLocaleString('en-US', {timeZone: 'UTC'}))} 
         </p>
         <p>
           <span className='event-info-labels'>All day: </span>
