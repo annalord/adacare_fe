@@ -22,7 +22,6 @@ const AddMedModal = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     props.handleClose();
-    console.log(formData)
     await postMedApi(formData, user.id); //post med to database
     setFormData(kDefaultFormState);
     // get data again, update state to rerender

@@ -48,7 +48,7 @@ export const postMedApi = async (medData, userId) => {
     withCredentials: true
   };
 
-  const body = JSON.stringify({...medData, med_name: medData.name, is_prescription: medData.isPrescription, user: userId});  
+  const body = JSON.stringify({...medData, med_name: medData.name, is_prescription: medData.isPrescription, refill_date: medData.refillDate, user: userId});  
 
   try {
     const response = await axios.post(`${kBaseUrl}/medications/`,body, config)

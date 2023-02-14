@@ -13,7 +13,8 @@ const EditMedModal = (props) => {
     dosage: props.currentMedData.dosage,
     notes: props.currentMedData.notes,
     isPrescription: props.currentMedData.is_prescription,
-    refillDate: (props.currentMedData.refill_date ??= '-'), //nullish coalesce assignment
+    // refillDate: (props.currentMedData.refill_date ??= '-'), //nullish coalesce assignment
+    refillDate: props.currentMedData.refill_date
   };
 
   // console.log(kDefaultFormState)
@@ -101,12 +102,11 @@ const EditMedModal = (props) => {
           </Form.Group>
 
           <Form.Group className='mb-3'>
-            <Form.Label>Refill date</Form.Label>
+            <Form.Label>Refill date (if applicable)</Form.Label>
             <Form.Control
               placeholder={formData.refillDate}
               size='sm'
               name='refillDate'
-              // disabled={formData.isPrescription}
               value={formData.refillDate}
               onChange={handleChange}
             />
