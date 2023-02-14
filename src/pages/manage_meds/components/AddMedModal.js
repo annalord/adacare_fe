@@ -65,6 +65,7 @@ const AddMedModal = (props) => {
               name='name'
               value={formData.name}
               onChange={handleChange}
+              maxLength="25"
             />
           </Form.Group>
 
@@ -76,6 +77,7 @@ const AddMedModal = (props) => {
               name='time'
               value={formData.time}
               onChange={handleChange}
+              maxLength="50"
             />
           </Form.Group>
 
@@ -87,6 +89,7 @@ const AddMedModal = (props) => {
               name='dosage'
               value={formData.dosage}
               onChange={handleChange}
+              maxLength="50"
             />
           </Form.Group>
 
@@ -99,6 +102,7 @@ const AddMedModal = (props) => {
               as='textarea'
               value={formData.notes}
               onChange={handleChange}
+              maxLength="200"
             />
           </Form.Group>
           <Form.Group className='mb-1'>
@@ -107,9 +111,9 @@ const AddMedModal = (props) => {
               // placeholder='Refill date (if applicable)'
               size='sm'
               name='refillDate'
-              // disabled={!formData.isPrescription}
               value={formData.refillDate}
               onChange={handleChange}
+              maxLength="25"
             />
           </Form.Group>
 

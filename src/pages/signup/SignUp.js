@@ -80,6 +80,7 @@ const SignUp = () => {
                 name='firstName'
                 value={formData.firstName}
                 onChange={handleChange}
+                maxLength="30"
               />
             </Form.Group>
             <Form.Group className='mb-3' controlId='formUsername'>
@@ -90,6 +91,7 @@ const SignUp = () => {
                 name='username'
                 value={formData.username}
                 onChange={handleChange}
+                maxLength="30"
               />
             </Form.Group>
 
@@ -100,6 +102,7 @@ const SignUp = () => {
                 name='password'
                 value={formData.password}
                 onChange={handleChange}
+                maxLength="30"
               />
             </Form.Group>
             
@@ -111,6 +114,7 @@ const SignUp = () => {
                 name='pwRepeat'
                 value={formData.pwRepeat}
                 onChange={handleChange}
+                maxLength="30"
               />
             </Form.Group>
             

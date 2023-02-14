@@ -41,6 +41,7 @@ const AddTaskForm = (props) => {
             name='task'
             value={formData.task}
             onChange={handleChange}
+            maxLength="50"
           />
         </Form.Group>
 

@@ -97,6 +97,7 @@ const AllNotes = () => {
               name='author'
               value={formData.author}
               onChange={handleChange}
+              maxLength="20"
             />
           </Form.Group>
           <Form.Group className='mb-1'>
@@ -108,6 +109,7 @@ const AllNotes = () => {
               name='message'
               value={formData.message}
               onChange={handleChange}
+              maxLength="200"
             />
           </Form.Group>
           <Button type='submit' size='sm' id='note-submit'>

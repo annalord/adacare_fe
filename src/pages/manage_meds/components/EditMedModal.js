@@ -75,6 +75,7 @@ const EditMedModal = (props) => {
               name='time'
               value={formData.time}
               onChange={handleChange}
+              maxLength="50"
             />
           </Form.Group>
 
@@ -86,6 +87,7 @@ const EditMedModal = (props) => {
               name='dosage'
               value={formData.dosage}
               onChange={handleChange}
+              maxLength="50"
             />
           </Form.Group>
 
@@ -98,6 +100,7 @@ const EditMedModal = (props) => {
               name='notes'
               value={formData.notes}
               onChange={handleChange}
+              maxLength="200"
             />
           </Form.Group>
 
@@ -109,6 +112,7 @@ const EditMedModal = (props) => {
               name='refillDate'
               value={formData.refillDate}
               onChange={handleChange}
+              maxLength="25"
             />
           </Form.Group>
           <Button id='delete-med-button' onClick={handleDelete}>Delete this medication</Button>

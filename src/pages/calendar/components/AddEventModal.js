@@ -69,6 +69,7 @@ const AddEventModal = (props) => {
               name='title'
               value={formData.title}
               onChange={handleChange}
+              maxLength="50"
             />
           </Form.Group>
 
@@ -81,6 +82,7 @@ const AddEventModal = (props) => {
               name='details'
               value={formData.details}
               onChange={handleChange}
+              maxLength="300"
             />
           </Form.Group>
 
