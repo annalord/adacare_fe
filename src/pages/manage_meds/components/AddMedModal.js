@@ -12,7 +12,7 @@ const kDefaultFormState = {
   dosage: '',
   notes: '',
   isPrescription: false,
-  refillDate: ''
+  refillDate: '',
 };
 
 const AddMedModal = (props) => {
@@ -56,7 +56,6 @@ const AddMedModal = (props) => {
 
       <Modal.Body>
         <Form>
-
           <Form.Group className='mb-1'>
             <Form.Label>Medication name</Form.Label>
             <Form.Control
@@ -65,7 +64,8 @@ const AddMedModal = (props) => {
               name='name'
               value={formData.name}
               onChange={handleChange}
-              maxLength="25"
+              maxLength='25'
+              required
             />
           </Form.Group>
 
@@ -77,7 +77,7 @@ const AddMedModal = (props) => {
               name='time'
               value={formData.time}
               onChange={handleChange}
-              maxLength="50"
+              maxLength='50'
             />
           </Form.Group>
 
@@ -89,7 +89,7 @@ const AddMedModal = (props) => {
               name='dosage'
               value={formData.dosage}
               onChange={handleChange}
-              maxLength="50"
+              maxLength='50'
             />
           </Form.Group>
 
@@ -102,18 +102,20 @@ const AddMedModal = (props) => {
               as='textarea'
               value={formData.notes}
               onChange={handleChange}
-              maxLength="200"
+              maxLength='200'
             />
           </Form.Group>
           <Form.Group className='mb-1'>
-            <Form.Label className='mt-2'>Refill date (if applicable)</Form.Label>
+            <Form.Label className='mt-2'>
+              Refill date (if applicable)
+            </Form.Label>
             <Form.Control
               // placeholder='Refill date (if applicable)'
               size='sm'
               name='refillDate'
               value={formData.refillDate}
               onChange={handleChange}
-              maxLength="25"
+              maxLength='25'
             />
           </Form.Group>
 
@@ -125,7 +127,6 @@ const AddMedModal = (props) => {
               onChange={handleIsPrescriptionChange}
             />
           </Form.Group>
-
         </Form>
       </Modal.Body>
 

@@ -2,14 +2,12 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './AddTaskForm.css';
-import { postTaskApi } from '../../../api/ChecklistAPI.js'
+import { postTaskApi } from '../../../api/ChecklistAPI.js';
 import { useAuthContext } from '../../../hooks/useAuthContext';
-
-
 
 const kDefaultFormState = {
   task: '',
-  time: ''
+  time: '',
 };
 
 const AddTaskForm = (props) => {
@@ -29,11 +27,11 @@ const AddTaskForm = (props) => {
     await postTaskApi(formData, user.id);
     setFormData(kDefaultFormState);
     props.getAllChecklistData();
-    }
-  
+  };
+
   return (
     <div id='addtask-form'>
-      <Form onSubmit={handleSubmit} >
+      <Form onSubmit={handleSubmit}>
         <Form.Group className='mb-3' controlId='formUsername'>
           <Form.Label className='label'>Task</Form.Label>
           <Form.Control
@@ -41,7 +39,8 @@ const AddTaskForm = (props) => {
             name='task'
             value={formData.task}
             onChange={handleChange}
-            maxLength="50"
+            maxLength='50'
+            required
           />
         </Form.Group>
 
@@ -52,11 +51,14 @@ const AddTaskForm = (props) => {
             name='time'
             value={formData.time}
             onChange={handleChange}
+            required
           />
         </Form.Group>
 
         <div className='text-center'>
-          <Button type='submit' id='addtask-button'>Add checklist item!</Button>
+          <Button type='submit' id='addtask-button'>
+            Add checklist item!
+          </Button>
         </div>
       </Form>
     </div>

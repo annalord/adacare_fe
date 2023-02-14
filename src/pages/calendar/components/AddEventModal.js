@@ -70,6 +70,7 @@ const AddEventModal = (props) => {
               value={formData.title}
               onChange={handleChange}
               maxLength="50"
+              required
             />
           </Form.Group>
 
@@ -104,6 +105,7 @@ const AddEventModal = (props) => {
               name='start'
               value={formData.start}
               onChange={handleChange}
+              required
             />
           </Form.Group>
 
