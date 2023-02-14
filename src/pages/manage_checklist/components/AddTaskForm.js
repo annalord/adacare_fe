@@ -32,7 +32,7 @@ const AddTaskForm = (props) => {
   return (
     <div id='addtask-form'>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className='mb-3' controlId='formUsername'>
+        <Form.Group className='mb-3' controlId='formTask'>
           <Form.Label className='label'>Task</Form.Label>
           <Form.Control
             type='text'
@@ -44,7 +44,7 @@ const AddTaskForm = (props) => {
           />
         </Form.Group>
 
-        <Form.Group className='mb-3' controlId='formPassword'>
+        <Form.Group className='mb-3' controlId='formTime'>
           <Form.Label className='label'>Time</Form.Label>
           <Form.Control
             type='time'
