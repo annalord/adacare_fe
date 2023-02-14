@@ -1,7 +1,7 @@
 #checklist-description {
   background-color: white;
   color: black;
-  border: solid #f23535;
+  box-shadow: 2px 2px 5px #f23535;
   padding: 3px;
   text-align: center;
   border-radius: 10px;

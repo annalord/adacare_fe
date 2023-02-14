@@ -31,20 +31,24 @@ const Calendar = () => {
       <Row>
         <NavBar />
       </Row>
-      <Row>
-        <Col className='col-9'>
-          <MyFullCalendar events={eventsData} getAllEvents={getAllEvents}/>
-        </Col>
 
-        <Col >
-          <Button onClick={handleShow} id='add-event-button' className='mt-3 mr-3'> Click here to add a new calendar event </Button> 
+      <Row className='ml-3' id='info-row'>
+        <div id='cal-blurb'>
+          <p className='cal-blurb-p'>Events on the calendar will be shown in "Today's Checklist" on the home page on the day of the event. </p>
+          <p className='cal-blurb-p'>Click on an event for more information.</p>
+        </div>
+        <Button onClick={handleShow} id='add-event-button' className='mt-3 mr-3'> Add a new calendar event </Button> 
           <AddEventModal
           isOpen={isModalOpen}
           handleClose={handleClose}
           getAllEvents={getAllEvents}
           />
+      </Row>
+
+      <Row>
+        <Col id='cal-col'>
+          <MyFullCalendar events={eventsData} getAllEvents={getAllEvents}/>
         </Col>
-        
       </Row>
     </div>
   )

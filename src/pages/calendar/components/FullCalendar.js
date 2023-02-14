@@ -47,6 +47,7 @@ const MyFullCalendar = (props) => {
         titleFormat={{ year: 'numeric', month: 'long', day: 'numeric' }}
         timeZone='America/Denver'
         eventClick={onEventClick}
+        height='900px'
       />
       <EventInfoModal
         isOpen={isModalOpen}

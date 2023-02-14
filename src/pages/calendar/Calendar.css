@@ -1,10 +1,37 @@
-#calendar-page {
-  background-color: #402d32
-}
-
 #add-event-button {
-  background-color: #84a608;
+  background-color: #a6032f;
   border: none;
   box-shadow:  1px 1px 5px #f23535;
-  color: black;
+  color: white;
+  width: 17vw;
+}
+
+#cal-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#info-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cal-blurb {
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  margin-top: 2vh;
+  padding-top: 1vh;
+  padding-left: 1vh;
+  padding-right: 1vh;
+  box-shadow:  1px 1px 5px #a6032f;
+}
+
+.cal-blurb-p {
+  margin-top: 0;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }

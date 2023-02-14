@@ -1,8 +1,9 @@
 .full-calendar {
     font-family: sans-serif;
-    background-color: #f2f2f2;
+    background-color: #84a608;
     border-radius: 5px;
-    padding: 1px;
+    padding: 10px;
+    width: 85vw;
 }
 
 .fc-day-today {
