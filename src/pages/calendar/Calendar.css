@@ -4,6 +4,13 @@
   box-shadow:  1px 1px 5px #f23535;
   color: white;
   width: 17vw;
+  height: 6vh;
+  border-radius: 10px;
+}
+
+#add-event-button:hover {
+  background-color: #f23535;
+  box-shadow:  1px 1px 5px #a6032f;
 }
 
 #cal-col {
@@ -14,19 +21,23 @@
 
 #info-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
 
 #cal-blurb {
   text-align: center;
   background-color: #f2f2f2;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  margin-right: 6vw;
   margin-top: 2vh;
   padding-top: 1vh;
   padding-left: 1vh;
   padding-right: 1vh;
-  box-shadow:  1px 1px 5px #a6032f;
+  /* box-shadow:  1px 1px 5px #a6032f; */
+  border: solid #a6032f;
+  font-size: .9rem;
 }
 
 .cal-blurb-p {
