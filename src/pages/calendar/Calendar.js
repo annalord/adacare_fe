@@ -33,7 +33,7 @@ const Calendar = () => {
       </Row>
       <Row>
         <Col className='col-9'>
-          <MyFullCalendar events={eventsData}/>
+          <MyFullCalendar events={eventsData} getAllEvents={getAllEvents}/>
         </Col>
 
         <Col >

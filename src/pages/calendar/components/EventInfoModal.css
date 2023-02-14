@@ -1,0 +1,13 @@
+#delete-event {
+  background-color: #a6032f;
+  border: solid 2px #f23535;
+}
+
+#delete-event:hover {
+  background-color: #f23535;
+  border: solid 2px #a6032f;
+}
+
+.event-info-labels {
+  font-weight: 700;
+}

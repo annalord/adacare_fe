@@ -116,5 +116,28 @@ export const patchCompleteEventApi = async (id, bool) => {
   }
 };
 
+// DELETE AN EVENT 
+export const deleteEventApi = async (id) => {
 
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+      'Authorization': `Token ${getUserLsToken()}`
+    },
+    withCredentials: true
+  };
+
+  try {
+    const response = await axios.delete(`${kBaseUrl}/events/${id}`, config)
+
+    if (response.status === 202) {
+      console.log('event deleted!')
+    }
+
+    } catch (err) {
+    console.log(`failure deleting event: ${err}`)
+  }
+};
 
