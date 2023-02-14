@@ -1,4 +1,4 @@
-import './Note.css'
+import './Note.css';
 
 const Note = (props) => {
   return (
@@ -9,7 +9,7 @@ const Note = (props) => {
       </div>
       <p className='message'> {props.message} </p>
     </div>
-  )
+  );
 };
 
 export default Note;

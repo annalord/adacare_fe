@@ -17,7 +17,6 @@ const EditMedModal = (props) => {
     refillDate: props.currentMedData.refill_date
   };
 
-  // console.log(kDefaultFormState)
 
   const [formData, setFormData] = useState(kDefaultFormState);
   const { user } = useAuthContext();
@@ -42,7 +41,6 @@ const EditMedModal = (props) => {
   const handleChange = (event) => {
     const fieldValue = event.target.value;
     const fieldName = event.target.name;
-    // console.log(`${fieldName}: ${fieldValue}`)
     const newFormData = { ...formData, [fieldName]: fieldValue };
     setFormData(newFormData);
   };

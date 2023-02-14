@@ -1,10 +1,10 @@
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import AllNotes from './components/NotesWidget'
-import TodaysChecklist from './components/TodaysChecklist';
 import {Link} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import AllNotes from './components/NotesWidget'
+import TodaysChecklist from './components/TodaysChecklist';
 import './Home.css'
 import LogoutButton from '../../misc_components/LogoutButton'
 import AdaCareBanner from '../../misc_components/AdaCareBanner'
@@ -39,7 +39,6 @@ const formatDisplayDate = () => {
     'December',
   ];
   const now = new Date();
-  // console.log(now)
   return (
     days[now.getDay()] +
     ', ' +

@@ -48,9 +48,7 @@ const formatTaskTime = (taskTime) => {
 
 // change event start date/time to just time
 const formatEventTime = (eventDateTime) => {
-  // console.log(eventDateTime)
   const dateTime = new Date(eventDateTime);
-  // console.log(dateTime)
 
   let hours = dateTime.getUTCHours();
   let minutes = dateTime.getUTCMinutes();
@@ -74,7 +72,7 @@ const noChecklistItems = () => {
       <p>Go to the checklist or calendar page to get started!</p>
     </div>
   )
-}
+};
 
 const TodaysChecklist = () => {
   const [todaysChecklistData, setTodaysChecklistData] = useState([]);
@@ -82,8 +80,6 @@ const TodaysChecklist = () => {
   const getTodaysChecklistData = async () => {
     const dailyData = await getChecklistApi();
     const todaysEventData = await getTodaysEventsApi(getTodaysDate());
-    // console.log(dailyData)
-    // console.log(todaysEventData)
 
     // combine checklist and event data into a single array with formatted times
     let allData = [];

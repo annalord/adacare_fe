@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
 import { postEventApi } from '../../../api/EventsAPI.js';
 import { useAuthContext } from '../../../hooks/useAuthContext';
-import './AddEventModal.css'
+import './AddEventModal.css';
 
 const kDefaultFormState = {
   title: '',
@@ -64,12 +64,11 @@ const AddEventModal = (props) => {
           <Form.Group className='mb-1 mt-1'>
             <Form.Label>Event title</Form.Label>
             <Form.Control
-              // placeholder='Event title'
               size='sm'
               name='title'
               value={formData.title}
               onChange={handleChange}
-              maxLength="50"
+              maxLength='50'
               required
             />
           </Form.Group>
@@ -77,13 +76,12 @@ const AddEventModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Label>Event details</Form.Label>
             <Form.Control
-              // placeholder='Event details'
               as='textarea'
               size='sm'
               name='details'
               value={formData.details}
               onChange={handleChange}
-              maxLength="300"
+              maxLength='300'
             />
           </Form.Group>
 
@@ -99,7 +97,6 @@ const AddEventModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Label>Start date and time</Form.Label>
             <Form.Control
-              // placeholder='Start time and date'
               type='datetime-local'
               size='sm'
               name='start'
@@ -112,7 +109,6 @@ const AddEventModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Label>End date and time</Form.Label>
             <Form.Control
-              // placeholder='End time and date'
               type='datetime-local'
               size='sm'
               name='end'

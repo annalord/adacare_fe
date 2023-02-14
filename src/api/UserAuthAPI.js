@@ -1,15 +1,12 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-
 const kBaseUrl = process.env.REACT_APP_BE_URL;
 const getUserLsToken =  () => {
   return JSON.parse(window.localStorage.getItem('user')).token;
 };
 
-
 export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstName:first_name }) => {
-
   const body = JSON.stringify({ username, password, pw_repeat, first_name, withCredentials: true});
   const config = {
     headers: {
@@ -18,7 +15,7 @@ export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstN
       'X-CSRFToken': Cookies.get('csrftoken'),
     },
     withCredentials: true
-  }
+  };
 
   try {
     const response = await axios.post(`${kBaseUrl}/signup`, body, config);
@@ -32,11 +29,9 @@ export const signUpAPI = async ({ username, password, pwRepeat:pw_repeat, firstN
     } catch (err) {
     console.log(`SIGN UP FAIL: ${err}`);
   } 
-  
 };
 
 export const loginAPI = async ({ username, password }) => {
-
   const body = JSON.stringify({ username, password, withCredentials: true});
   const config = {
     headers: {
@@ -61,7 +56,6 @@ export const loginAPI = async ({ username, password }) => {
 };
 
 export const logoutAPI = async () => {
-
   const config = {
     headers: {
       Accept: 'application/json',

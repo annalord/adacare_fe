@@ -1,7 +1,6 @@
 import { useMemo, useState, useEffect, createContext, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-
 export const setItemInLocalStorage = (keyName, value) => {
   window.localStorage.setItem(keyName, JSON.stringify(value));
 };
@@ -45,19 +44,17 @@ export const AuthProvider = ({ children }) => {
     } else {
       navigate("/login");
     }
-  }, [location.pathname, navigate]); //??
+  }, [location.pathname, navigate]);
 
   const authLogin = (userData) => {
     setUser(userData);
     setItemInLocalStorage("user", userData);
     navigate("/home");
-    // console.log(user);
   };
 
   const authLogout = () => {
     setUser(kInitialUserState);
     setItemInLocalStorage("user", kInitialUserState);
-    // setItemInLocalStorage()
     navigate("/login");
   };
 

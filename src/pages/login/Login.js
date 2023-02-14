@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import LoginForm from './components/LoginForm';
 import './Login.css';
 import AdaCareBanner from '../../misc_components/AdaCareBanner'
-// import CSRFToken from '../../misc_components/CSRFToken';
 
 const Login = () => {
 

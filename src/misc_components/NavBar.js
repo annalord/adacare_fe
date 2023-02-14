@@ -1,12 +1,12 @@
+import { useLocation } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import bird from '../littlebird-nobg.png';
 import './NavBar.css';
-import { useLocation } from "react-router-dom";
-import checklistIcon from '../checklist.png'
-import calendarIcon from '../calendar.png'
-import medsIcon from '../meds.png'
+import checklistIcon from '../checklist.png';
+import calendarIcon from '../calendar.png';
+import medsIcon from '../meds.png';
 
 function NavBar() {
 
@@ -33,6 +33,6 @@ function NavBar() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default NavBar;

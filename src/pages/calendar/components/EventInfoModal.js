@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal';
 import { deleteEventApi } from '../../../api/EventsAPI.js';
 import './EventInfoModal.css'
 
-
 const EventInfoModal = (props) => {
   
   const handleDelete = async () => {
@@ -12,7 +11,6 @@ const EventInfoModal = (props) => {
     props.handleClose();
   };
 
-  // console.log((props.selectedEventInfo?.event?.start))
 
   return (
     <Modal show={props.isOpen} onHide={props.handleClose}>

@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import daygridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import './FullCalendar.css';
-import { useState } from 'react';
 import EventInfoModal from './EventInfoModal';
 
 const MyFullCalendar = (props) => {
@@ -26,8 +26,6 @@ const MyFullCalendar = (props) => {
       };
     });
   };
-
-  // console.log(formatEventDetails(props.events))
 
   return (
     <div className='full-calendar mt-3 ml-3 mb-3'>

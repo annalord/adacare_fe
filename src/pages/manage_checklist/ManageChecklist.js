@@ -10,7 +10,6 @@ import AddTaskForm from './components/AddTaskForm';
 
 
 const ManageToDos = () => {
-
   const [checklistData, setChecklistData] = useState([]); 
 
   const getAllChecklistData = async () => {

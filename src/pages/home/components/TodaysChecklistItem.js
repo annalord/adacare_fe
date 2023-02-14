@@ -5,13 +5,6 @@ import unchecked from '../../../unchecked-checkbox.png'
 import checked from '../../../checked-checkbox.png'
 
 
-
-// function formatTime(time) {
-//   let date = new Date("1970-01-01 " + time);
-//   return date.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
-// };
-
-
 const TodaysChecklistItem = (props) => {
 
   const handleCheckOffTask = async () => {

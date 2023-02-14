@@ -25,7 +25,6 @@ const OTCs = (props) => {
             <th>Dosage</th>
             <th>Notes</th>
             <th>Refill Date</th>
-            {/* <th>Refill Date</th> */}
           </tr>
         </thead>
         <tbody>

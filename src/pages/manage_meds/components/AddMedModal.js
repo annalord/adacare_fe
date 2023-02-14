@@ -35,7 +35,6 @@ const AddMedModal = (props) => {
   const handleChange = (event) => {
     const fieldValue = event.target.value;
     const fieldName = event.target.name;
-    // console.log(`${fieldName}: ${fieldValue}`)
     const newFormData = { ...formData, [fieldName]: fieldValue };
     setFormData(newFormData);
   };
@@ -43,7 +42,6 @@ const AddMedModal = (props) => {
   const handleIsPrescriptionChange = (event) => {
     const fieldValue = event.target.checked;
     const fieldName = event.target.name;
-    // console.log(`${fieldName}: ${fieldValue}`)
     const newFormData = { ...formData, [fieldName]: fieldValue };
     setFormData(newFormData);
   };
@@ -59,7 +57,6 @@ const AddMedModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Label>Medication name</Form.Label>
             <Form.Control
-              // placeholder='Medication name'
               size='sm'
               name='name'
               value={formData.name}
@@ -72,7 +69,6 @@ const AddMedModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Label className='mt-2'>Time of day</Form.Label>
             <Form.Control
-              // placeholder='Time'
               size='sm'
               name='time'
               value={formData.time}
@@ -84,7 +80,6 @@ const AddMedModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Label className='mt-2'>Dosage</Form.Label>
             <Form.Control
-              // placeholder='Dosage'
               size='sm'
               name='dosage'
               value={formData.dosage}
@@ -96,7 +91,6 @@ const AddMedModal = (props) => {
           <Form.Group className='mb-1'>
             <Form.Label className='mt-2'>Notes</Form.Label>
             <Form.Control
-              // placeholder='Notes'
               size='sm'
               name='notes'
               as='textarea'
@@ -110,7 +104,6 @@ const AddMedModal = (props) => {
               Refill date (if applicable)
             </Form.Label>
             <Form.Control
-              // placeholder='Refill date (if applicable)'
               size='sm'
               name='refillDate'
               value={formData.refillDate}

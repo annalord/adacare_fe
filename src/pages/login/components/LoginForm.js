@@ -41,7 +41,6 @@ const LoginForm = () => {
     event.preventDefault();
     const response = await loginAPI(formData);
     setFormData(kDefaultFormState);
-    // console.log(response);
 
     if (response.data.success) {
       authLogin({
