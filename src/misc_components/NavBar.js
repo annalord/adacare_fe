@@ -4,6 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import bird from '../littlebird-nobg.png';
 import './NavBar.css';
 import { useLocation } from "react-router-dom";
+import checklistIcon from '../checklist.png'
+import calendarIcon from '../calendar.png'
+import medsIcon from '../meds.png'
 
 function NavBar() {
 
@@ -11,7 +14,7 @@ function NavBar() {
 
   return (
     <Navbar bg='light' expand='lg' relative='top' className='border-bottom'>
-      <Container>
+      <Container id='navbar-container'>
         <Navbar.Brand href='#home'>
           <img src={bird} alt='cardinal drawing' id='navbird'></img>
         </Navbar.Brand>
@@ -24,6 +27,9 @@ function NavBar() {
             {locationPath !== "/managechecklist" && <Nav.Link href='/managechecklist'>Daily Checklist</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
+          {locationPath === "/calendar" && <img src={calendarIcon} alt='calendar icon' className='nav-icons'></img>}
+          {locationPath === "/managemeds" && <img src={medsIcon} alt='meds icon' className='nav-icons'></img>}
+          {locationPath === "/managechecklist" && <img src={checklistIcon} alt='checklist icon' className='nav-icons'></img>}
       </Container>
     </Navbar>
   );
