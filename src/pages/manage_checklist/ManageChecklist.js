@@ -30,8 +30,10 @@ const ManageToDos = () => {
           <NavBar />
         </Row>
 
-        <Row className='mt-3'>
-          <Col className='ml-5'>
+        <Row className='mt-3 mb-2'>
+          <Col className='col-2'></Col>
+
+          <Col className='ml-2'>
             <DailyChecklist
               checklistData={checklistData}
               getAllChecklistData={getAllChecklistData}
@@ -41,6 +43,7 @@ const ManageToDos = () => {
             <AddTaskForm
               getAllChecklistData={getAllChecklistData} />
           </Col>
+          <Col className='col-1'></Col>
         </Row>
       </Container>
     </div>

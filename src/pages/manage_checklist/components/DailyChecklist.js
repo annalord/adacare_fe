@@ -31,7 +31,7 @@ const DailyChecklist = (props) => {
   };
   
   return (
-    <div>
+    <div id='mng-checklist-container'>
       <p id='checklist-description'>These tasks will appear each day in "Today's Checklist" on the home page. You can add a new daily task or press "X" to delete. </p>
       <div id='checklist-mng'>
         {(getTaskItemArray(props.checklistData).length === 0) && noChecklistItems()}
