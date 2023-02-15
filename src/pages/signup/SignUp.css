@@ -4,7 +4,10 @@
 
 #signup-form {
   background-color: #a6032f;
-  padding: 2vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   border: solid #f23535;
 }
 

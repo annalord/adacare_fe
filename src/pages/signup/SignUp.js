@@ -70,7 +70,7 @@ const SignUp = () => {
           <AdaCareBanner/>
         </Row>
 
-        <Row className='d-flex justify-content-center mt-1 mb-3'>
+        <Row className='d-flex justify-content-center mt-5 mb-3'>
           <Form onSubmit={handleSubmit} id='signup-form'>
             <p id='create-acct-txt'>Create an account</p>
             <Form.Group className='mb-3' controlId='formFirstName'>
