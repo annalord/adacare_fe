@@ -86,7 +86,7 @@ const AllNotes = () => {
 
       <div id='new-note-box'>
         <Form className='mt-2' id='new-note-form' onSubmit={handleSubmit}>
-          <Form.Group className='mb-1 mt-1 name-field'>
+          <Form.Group className='mt-3 name-field'>
             <Form.Control
               placeholder='Your name'
               size='sm'
@@ -98,7 +98,7 @@ const AllNotes = () => {
               required
             />
           </Form.Group>
-          <Form.Group className='mb-1'>
+          <Form.Group className='mb-2 mt-2'>
             <Form.Control
               placeholder='Your note here'
               size='sm'

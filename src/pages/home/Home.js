@@ -72,7 +72,7 @@ const Home = () => {
                 <img src={checklistIcon} alt='checklist icon' className='menu-icons'></img>
             </div>
             <Link to={`/managechecklist`}>
-              <Button className='home-buttons'> Manage Daily Checklist</Button>
+              <Button className='home-buttons'> View and Manage Daily Checklist</Button>
             </Link>
 
             <div>
@@ -94,12 +94,12 @@ const Home = () => {
 
           </Col>
 
-          <Col className='mt-3 mb-3' >
+          <Col className='mt-3 mb-3 ml-5' >
             <p id='todays-date' >{formatDisplayDate()}</p>
             <TodaysChecklist></TodaysChecklist>
           </Col>
 
-          <Col className='mt-3 mb-3'>
+          <Col className='mt-3 mb-3 ml-4 mr-5'>
             <AllNotes/>
           </Col>
         </Row>
