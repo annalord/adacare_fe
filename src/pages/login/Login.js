@@ -14,7 +14,7 @@ const Login = () => {
           <AdaCareBanner/>
         </Row>
 
-        <Row className='d-flex justify-content-center mt-3 mb-3'>
+        <Row className='d-flex justify-content-center mt-5 mb-3'>
           <LoginForm/>
         </Row>
 
