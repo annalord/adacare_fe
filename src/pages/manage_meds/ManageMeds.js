@@ -38,9 +38,11 @@ const ManageMeds = () => {
         <NavBar />
       </Row>
 
-      <Row className='mt-2'>
-        <Col className='col-9' id='button-col'>
-          <p className='bubble'>
+      <Row className='mt-2' id='info-row'>
+        <Col className='col-1'></Col>
+
+        <Col className='col-7 ml-4' id='bubble-col'>
+          <p className='bubble mb-n2'>
             Click on an existing medication's name to edit its details or delete
             it
           </p>
@@ -50,7 +52,7 @@ const ManageMeds = () => {
           <Button
             onClick={handleShow}
             id='add-med-button'
-            className='ml-3 mr-3 mt-5'
+            className='mr-5 mt-5 ml-5'
           >
             ✚ Add a new medication
           </Button>

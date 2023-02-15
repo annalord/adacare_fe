@@ -6,15 +6,18 @@
 }
 
 #add-med-button {
-  background-color: #f2f2f2;
+  background-color: #84a608;
   color: black;
-  border: solid #f23535;
+  border: solid #84a608;
+  box-shadow: 2px 2px 2px 0px #402d32;
   width: 17vw;
   border-radius: 10px
 }
 
 #add-med-button:hover {
-  color:#a6032f;
+  background-color:#f23535;
+  border: solid #f23535;
+  color: white;
 }
 
 .bubble {
@@ -42,9 +45,9 @@
     border-color: transparent #f23535 transparent transparent;
     bottom: -21px;
     left: 15%;
-    margin-left: -10.5px;
+    margin-left: -6.5px;
 }
 
-#button-col {
-  width: 60vw;
+#info-row {
+  width: 100vw;
 }
